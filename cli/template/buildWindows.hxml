@@ -3,5 +3,6 @@
 -lib raygen
 --cpp bin/cpp
 --next
+--cmd if not exist ".\bin\final" mkdir .\bin\final
 --cmd copy .\bin\cpp\Main.exe .\bin\final\Main.exe
---cmd copy .\assets .\bin\final\assets
+--cmd xcopy .\assets .\bin\final\assets /E /I

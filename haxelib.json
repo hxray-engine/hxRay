@@ -5,7 +5,6 @@
     "tags": ["cpp", "engine"],
     "description": "A simple, easy to use Game Engine built on top of Raylib",
     "version": "0.0.1",
-    "classPath": "raygen/",
     "releasenote": "Initial release, everything is working correctly.",
     "contributors": ["thepercentaegeguy"],
     "dependencies": {
