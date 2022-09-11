@@ -10,7 +10,7 @@ RayGen is a simple, easy to use 2D/3D engine built on top of Raylib
 # Installation
 For the latest stable build run:
 ```
-haxelib install raygen
+N/A
 ```
 For the latest dev commit run: 
 ```
