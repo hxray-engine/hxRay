@@ -7,7 +7,7 @@ import massive.sys.io.File as MassiveFile;
 
 using StringTools;
 
-class Main
+class CLI
 {
     static var workingDir = "";
 

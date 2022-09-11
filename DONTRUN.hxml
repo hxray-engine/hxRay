@@ -1,6 +1,6 @@
 -cp src
 -D doc-gen
--m raygen.Main
+-m raygen.CLI
 --macro include('raygen')
 -lib raylib-hx
 -lib mlib
