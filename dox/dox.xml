@@ -9533,13 +9533,17 @@
 		</meta>
 		<impl><class path="haxe.extern._AsVar.AsVar_Impl_" params="" file="D:\Haxe\haxe\std/haxe/extern/AsVar.hx" private="1" module="haxe.extern.AsVar" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<class path="raygen.Main" params="" file="raygen/Main.hx">
+		<main set="method" line="8" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</main>
+		<meta><m n=":dox"><e>hide</e></m></meta>
+	</class>
 	<class path="raygen.RgGame" params="" file="raygen/RgGame.hx">
 		<main set="method" line="12" static="1">
 			<f a=""><x path="Void"/></f>
-			<meta>
-				<m n=":keep"/>
-				<m n=":dox"><e>hide</e></m>
-			</meta>
+			<meta><m n=":dox"><e>hide</e></m></meta>
 		</main>
 		<new public="1" set="method" line="24">
 			<f a="sc:width:height:title:targetFPS">
