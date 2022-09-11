@@ -3,6 +3,9 @@ package cli;
 import sys.io.File;
 import sys.FileSystem;
 import haxe.io.Path;
+import massive.sys.io.File as MassiveFile;
+
+using StringTools;
 
 class Main
 {
@@ -62,8 +65,26 @@ class Main
                         d = ppath.split("/");
                     d = d.slice(0, d.length - 1);
                     ppath = d.join("/");
-                    File.copy(Path.join([ppath, "template"]), Path.join([workingDir, args[0]]));
+                    recursiveCopyDir(Path.join([ppath, "template"]), Path.join([workingDir, args[0]]));
+                    Sys.println("Done!");
                 }
         }
+    }
+
+    static function recursiveCopyDir(srcPath:String, dstPath:String, overwrite:Bool = true, ?filter:EReg, exclude:Bool = false)
+    {
+        // Windows can deal with forward slashes, but mlib thinks it can't be an absolute path
+		if (Sys.systemName() == "Windows")
+        {
+            srcPath = srcPath.replace("/", "\\");
+            dstPath = dstPath.replace("/", "\\");
+        }
+
+        final source = MassiveFile.create(srcPath);
+        final destination = MassiveFile.create(dstPath, true);
+
+        source.copyTo(destination, overwrite, filter, exclude);
+
+        return destination.exists;
     }
 }

@@ -9,7 +9,8 @@
     "releasenote": "Initial release, everything is working correctly.",
     "contributors": ["thepercentaegeguy"],
     "dependencies": {
-        "raylib-hx": ""
+        "raylib-hx": "",
+        "mlib": ""
     },
     "main": "cli.Main"
 }

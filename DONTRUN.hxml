@@ -3,6 +3,7 @@
 -m raygen.RgGame
 --macro include('raygen')
 -lib raylib-hx
+-lib mlib
 --no-output
 --each
 
