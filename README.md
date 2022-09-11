@@ -20,5 +20,6 @@ haxelib git raygen https://github.com/thepercentageguy/RayGen
 To work on the library yourself:
 - Install the official raylib binding for Haxe.
   - ```haxelib git raylib-hx https://github.com/foreignsasquatch/raylib-hx```
+  - ```haxelib install mlib```
 - Clone this repository
 - run ```haxelib dev raygen [path to your clone]```
