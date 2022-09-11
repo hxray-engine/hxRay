@@ -1,0 +1,4 @@
+# Simply used for VsHaxe to stop yelling. Don't actually try to build this.
+-lib raylib-hx
+-cp .
+--main Main

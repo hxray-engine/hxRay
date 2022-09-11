@@ -1,0 +1,7 @@
+-cp src
+-m Main
+-lib raygen
+--cpp bin/cpp
+--next
+--cmd copy .\bin\cpp\Main.exe .\bin\final\Main.exe
+--cmd copy .\assets .\bin\final\assets

@@ -1,6 +1,6 @@
 package raygen;
 
-import raygen.assets.base.Asset;
+import raygen.assets.base.RgAsset;
 
 /**
  * Basic Scene object, extend this to make a scene.
@@ -10,7 +10,7 @@ class RgScene
     /**
      * Current registered assets. only directly modify this if you know what you're doing, use `register` and `unregister` instead.
      */
-    public var assetQueue(default, default):Array<Asset>;
+    public var assetQueue(default, default):Array<RgAsset>;
 
     /**
      * Initialized the assetQueue. Please don't override this, use `init` instead.
@@ -72,9 +72,9 @@ class RgScene
      * Used to add assets to the asset-queue
      * @param asset The asset you want to add.
      */
-    final public function register(asset:Asset)
+    final public function register(asset:RgAsset)
     {
-        Rl.traceLog(Rl.TraceLogLevel.DEBUG, "Registering Asset " + Asset);
+        Rl.traceLog(Rl.TraceLogLevel.DEBUG, "Registering Asset " + RgAsset);
         assetQueue.push(asset);
     }
 
@@ -84,7 +84,7 @@ class RgScene
      * Used to remove assets from the asset-queue. Automatically calls `unload`.
      * @param asset the asset to remove.
      */
-    final public function unregister(asset:Asset)
+    final public function unregister(asset:RgAsset)
     {
         asset.unload();
         assetQueue.remove(asset);

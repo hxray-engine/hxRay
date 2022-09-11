@@ -1,14 +1,18 @@
-package;
+package raygen;
 
-import raygen.Scene;
-import raygen.SceneManager.*;
+import raygen.RgScene;
+import raygen.management.RgSceneMnger.*;
 
 class RgGame
 {
-    static function new(sc:Scene) {
-        Rl.initWindow(Cfg.window_width, Cfg.window_height, Cfg.window_title);
+    public function new(sc:RgScene, width:Int, height:Int, title:String, targetFPS:Int) {
+        RgGlobal.windowWidth = width;
+        RgGlobal.windowHeight = height;
+        RgGlobal.targetFPS = targetFPS;
 
-        Rl.setTargetFPS(Cfg.window_targetFPS);
+        Rl.initWindow(width, height, title);
+
+        Rl.setTargetFPS(targetFPS);
 
         Rl.traceLog(Rl.TraceLogLevel.INFO, "Window Initialization Finished");
 

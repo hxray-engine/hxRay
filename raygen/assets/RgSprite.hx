@@ -55,9 +55,9 @@ class RgSprite extends raygen.assets.base.RgObject
     public function center(?axies:Axies)
     {
         if (axies == X || axies == XY || axies == null)
-            pos.x = Std.int((Cfg.window_width / 2) - (pos.w / 2));
+            pos.x = Std.int((RgGlobal.windowWidth / 2) - (pos.w / 2));
         if (axies == Y || axies == XY || axies == null)
-            pos.y = Std.int((Cfg.window_height / 2) - (pos.h / 2));
+            pos.y = Std.int((RgGlobal.windowHeight / 2) - (pos.h / 2));
     }
 }
 

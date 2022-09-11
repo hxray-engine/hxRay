@@ -1,10 +1,13 @@
 package cli;
 
+import sys.io.File;
 import sys.FileSystem;
 import haxe.io.Path;
 
 class Main
 {
+    static var workingDir = "";
+
     static function main() {
         processCmd();
     }
@@ -25,7 +28,7 @@ class Main
 				if (lastArgument.length > 0) break;
 			}
 
-			lastArgument = new Path(lastArgument).toString();
+			workingDir = new Path(lastArgument).toString();
         }
 
         if (args.length == 0)
@@ -44,6 +47,23 @@ class Main
                 Sys.println("RayGen Game Engine V0.0.1");
             case "help":
                 Sys.println("");
+            case "create":
+                if (args.length == 0 || args.length > 1)
+                {
+                    Sys.println("USAGE: haxelib run raygen create PROJECTNAME");
+                }
+                else 
+                {
+                    var ppath = Sys.programPath();
+                    var d = [];
+                    if (Sys.systemName() == "Windows")
+                        d = ppath.split("\\");
+                    else 
+                        d = ppath.split("/");
+                    d = d.slice(0, d.length - 1);
+                    ppath = d.join("/");
+                    File.copy(Path.join([ppath, "template"]), Path.join([workingDir, args[0]]));
+                }
         }
     }
 }
