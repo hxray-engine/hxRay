@@ -13,7 +13,7 @@ class RgScene
     public var assetQueue(default, default):Array<RgAsset>;
 
     /**
-     * Initialized the assetQueue. Please don't override this, use `init` instead.
+     * Initializes the assetQueue. Please don't override this, use `init` instead.
      */
     public function new()
     {

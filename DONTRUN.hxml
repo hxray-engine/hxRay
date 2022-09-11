@@ -1,4 +1,11 @@
-# Simply used for VsHaxe to stop yelling. Don't actually try to build this.
+-cp src
+-D doc-gen
+-m raygen.RgGame
+--macro include('raygen')
 -lib raylib-hx
--cp .
---main Main
+--no-output
+--each
+
+--next
+-xml dox/dox.xml
+--cpp cpp
