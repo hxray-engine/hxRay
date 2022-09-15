@@ -3,6 +3,8 @@
 </p>
 
 ----
+**RAYGEN IS REBRANDING TO HXRAY ON THE 30TH**
+
 RayGen is a simple, easy to use 2D/3D engine built on top of Raylib
 
 **Not intended to be used yet. Very early in development**
