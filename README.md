@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/thepercentageguy/RayGen/blob/master/assets/sprites/RAYGEN.png"  width="300" height="300">
+  <img src="https://github.com/hxray-engine/RayGen/blob/master/logo.png?raw=true"  width="300" height="300">
 </p>
 
 ----
