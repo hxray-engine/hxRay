@@ -401,6 +401,7 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new Array.</haxe_doc>
 		</new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<abstract path="Class" params="T" file="D:\Haxe\haxe\std/Class.hx">
 		<this><x path="Class"><c path="Class.T"/></x></this>
@@ -414,6 +415,106 @@
 			<m n=":runtimeValue"/>
 		</meta>
 	</abstract>
+	<class path="EReg" params="" file="D:\Haxe\haxe\std/cpp/_std/EReg.hx">
+		<_hx_regexp_new_options set="method" static="1">
+			<f a="s:options">
+				<c path="String"/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<meta><m n=":native"><e>"_hx_regexp_new_options"</e></m></meta>
+		</_hx_regexp_new_options>
+		<_hx_regexp_match set="method" static="1">
+			<f a="handler:string:pos:len">
+				<d/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_regexp_match"</e></m></meta>
+		</_hx_regexp_match>
+		<_hx_regexp_matched set="method" static="1">
+			<f a="handle:pos">
+				<d/>
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_regexp_matched"</e></m></meta>
+		</_hx_regexp_matched>
+		<_hx_regexp_matched_pos set="method" static="1">
+			<f a="handle:match">
+				<d/>
+				<x path="Int"/>
+				<a>
+					<pos><x path="Int"/></pos>
+					<len><x path="Int"/></len>
+				</a>
+			</f>
+			<meta><m n=":native"><e>"_hx_regexp_matched_pos"</e></m></meta>
+		</_hx_regexp_matched_pos>
+		<r><d/></r>
+		<last><c path="String"/></last>
+		<global><x path="Bool"/></global>
+		<match public="1" set="method" line="36">
+			<f a="s">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `this` regular expression matches String `s`.
+
+		This method modifies the internal state.
+
+		If `s` is `null`, the result is unspecified.</haxe_doc>
+		</match>
+		<matched public="1" set="method" line="45">
+			<f a="n">
+				<x path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the matched sub-group `n` of `this` EReg.
+
+		This method should only be called after `this.match` or
+		`this.matchSub`, and then operates on the String of that operation.
+
+		The index `n` corresponds to the n-th set of parentheses in the pattern
+		of `this` EReg. If no such sub-group exists, the result is unspecified.
+
+		If `n` equals 0, the whole matched substring is returned.</haxe_doc>
+		</matched>
+		<new public="1" set="method" line="28">
+			<f a="r:opt">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new regular expression with pattern `r` and modifiers `opt`.
+
+		This is equivalent to the shorthand syntax `~/r/opt`
+
+		If `r` or `opt` are null, the result is unspecified.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[The EReg class represents regular expressions.
+
+	While basic usage and patterns consistently work across platforms, some more
+	complex operations may yield different results. This is a necessary trade-
+	off to retain a certain level of performance.
+
+	EReg instances can be created by calling the constructor, or with the
+	special syntax `~/pattern/modifier`
+
+	EReg instances maintain an internal state, which is affected by several of
+	its methods.
+
+	A detailed explanation of the supported operations is available at
+	<https://haxe.org/manual/std-regex.html>]]></haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/regexp/Build.xml\"/>"]]></e></m>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
 	<abstract path="Enum" params="T" file="D:\Haxe\haxe\std/Enum.hx">
 		<this><x path="Enum"><c path="Enum.T"/></x></this>
 		<haxe_doc>An abstract type that represents an Enum type.
@@ -437,6 +538,312 @@
 		<meta><m n=":coreType"/></meta>
 		<impl><class path="_EnumValue.EnumValue_Impl_" params="" file="D:\Haxe\haxe\std/EnumValue.hx" private="1" module="EnumValue" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<typedef path="Map" params="K:V" file="D:\Haxe\haxe\std/Map.hx"><x path="haxe.ds.Map">
+	<c path="Map.K"/>
+	<c path="Map.V"/>
+</x></typedef>
+	<typedef path="IMap" params="K:V" file="D:\Haxe\haxe\std/Map.hx" module="Map">
+		<c path="haxe.IMap">
+			<c path="IMap.K"/>
+			<c path="IMap.V"/>
+		</c>
+		<meta>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":deprecated"/>
+		</meta>
+	</typedef>
+	<class path="Math" params="" file="D:\Haxe\haxe\std/Math.hx" extern="1">
+		<PI public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>Represents the ratio of the circumference of a circle to its diameter,
+		specified by the constant, π. `PI` is approximately `3.141592653589793`.</haxe_doc>
+		</PI>
+		<NEGATIVE_INFINITY public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special `Float` constant which denotes negative infinity.
+
+		For example, this is the result of `-1.0 / 0.0`.
+
+		Operations with `NEGATIVE_INFINITY` as an operand may result in
+		`NEGATIVE_INFINITY`, `POSITIVE_INFINITY` or `NaN`.
+
+		If this constant is converted to an `Int`, e.g. through `Std.int()`, the
+		result is unspecified.</haxe_doc>
+		</NEGATIVE_INFINITY>
+		<POSITIVE_INFINITY public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special `Float` constant which denotes positive infinity.
+
+		For example, this is the result of `1.0 / 0.0`.
+
+		Operations with `POSITIVE_INFINITY` as an operand may result in
+		`NEGATIVE_INFINITY`, `POSITIVE_INFINITY` or `NaN`.
+
+		If this constant is converted to an `Int`, e.g. through `Std.int()`, the
+		result is unspecified.</haxe_doc>
+		</POSITIVE_INFINITY>
+		<NaN public="1" set="null" static="1">
+			<x path="Float"/>
+			<haxe_doc>A special `Float` constant which denotes an invalid number.
+
+		`NaN` stands for "Not a Number". It occurs when a mathematically incorrect
+		operation is executed, such as taking the square root of a negative
+		number: `Math.sqrt(-1)`.
+
+		All further operations with `NaN` as an operand will result in `NaN`.
+
+		If this constant is converted to an `Int`, e.g. through `Std.int()`, the
+		result is unspecified.
+
+		In order to test if a value is `NaN`, you should use `Math.isNaN()` function.</haxe_doc>
+		</NaN>
+		<abs public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the absolute value of `v`.
+
+		- If `v` is positive or `0`, the result is unchanged. Otherwise the result is `-v`.
+		- If `v` is `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		- If `v` is `NaN`, the result is `NaN`.</haxe_doc>
+		</abs>
+		<min public="1" set="method" static="1">
+			<f a="a:b">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the smaller of values `a` and `b`.
+
+		- If `a` or `b` are `NaN`, the result is `NaN`.
+		- If `a` or `b` are `NEGATIVE_INFINITY`, the result is `NEGATIVE_INFINITY`.
+		- If `a` and `b` are `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.</haxe_doc>
+		</min>
+		<max public="1" set="method" static="1">
+			<f a="a:b">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the greater of values `a` and `b`.
+
+		- If `a` or `b` are `NaN`, the result is `NaN`.
+		- If `a` or `b` are `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		- If `a` and `b` are `NEGATIVE_INFINITY`, the result is `NEGATIVE_INFINITY`.</haxe_doc>
+		</max>
+		<sin public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric sine of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</sin>
+		<cos public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric cosine of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</cos>
+		<tan public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric tangent of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</tan>
+		<asin public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc of the specified angle `v`, in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</asin>
+		<acos public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc cosine of the specified angle `v`,
+		in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</acos>
+		<atan public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc tangent of the specified angle `v`,
+		in radians.
+
+		If `v` is `NaN` or infinite, the result is `NaN`.</haxe_doc>
+		</atan>
+		<atan2 public="1" set="method" static="1">
+			<f a="y:x">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the trigonometric arc tangent whose tangent is the quotient of
+		two specified numbers, in radians.
+
+		If parameter `x` or `y`  is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
+		the result is `NaN`.</haxe_doc>
+		</atan2>
+		<exp public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns Euler's number, raised to the power of `v`.
+
+		`exp(1.0)` is approximately `2.718281828459`.
+
+		- If `v` is `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		- If `v` is `NEGATIVE_INFINITY`, the result is `0.0`.
+		- If `v` is `NaN`, the result is `NaN`.</haxe_doc>
+		</exp>
+		<log public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the natural logarithm of `v`.
+
+		This is the mathematical inverse operation of exp,
+		i.e. `log(exp(v)) == v` always holds.
+
+		- If `v` is negative (including `NEGATIVE_INFINITY`) or `NaN`, the result is `NaN`.
+		- If `v` is `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		- If `v` is `0.0`, the result is `NEGATIVE_INFINITY`.</haxe_doc>
+		</log>
+		<pow public="1" set="method" static="1">
+			<f a="v:exp">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns a specified base `v` raised to the specified power `exp`.</haxe_doc>
+		</pow>
+		<sqrt public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the square root of `v`.
+
+		- If `v` is negative (including `NEGATIVE_INFINITY`) or `NaN`, the result is `NaN`.
+		- If `v` is `POSITIVE_INFINITY`, the result is `POSITIVE_INFINITY`.
+		- If `v` is `0.0`, the result is `0.0`.</haxe_doc>
+		</sqrt>
+		<round public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Rounds `v` to the nearest integer value.
+
+		Ties are rounded up, so that `0.5` becomes `1` and `-0.5` becomes `0`.
+
+		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
+		or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</round>
+		<floor public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the largest integer value that is not greater than `v`.
+
+		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
+		or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</floor>
+		<ceil public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Int"/>
+			</f>
+			<haxe_doc>Returns the smallest integer value that is not less than `v`.
+
+		If `v` is outside of the signed `Int32` range, or is `NaN`, `NEGATIVE_INFINITY`
+		or `POSITIVE_INFINITY`, the result is unspecified.</haxe_doc>
+		</ceil>
+		<random public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<haxe_doc>Returns a pseudo-random number which is greater than or equal to `0.0`,
+		and less than `1.0`.</haxe_doc>
+		</random>
+		<ffloor public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the largest integer value that is not greater than `v`, as a `Float`.
+
+		If `v` is is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
+		the result is unspecified.</haxe_doc>
+		</ffloor>
+		<fceil public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Returns the smallest integer value that is not less than `v`, as a `Float`.
+
+		If `v` is is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
+		the result is unspecified.</haxe_doc>
+		</fceil>
+		<fround public="1" set="method" static="1">
+			<f a="v">
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<haxe_doc>Rounds `v` to the nearest integer value, as a Float.
+
+		Ties are rounded up, so that `0.5` becomes `1` and `-0.5` becomes `0`.
+
+		If `v` is is `NaN`, `NEGATIVE_INFINITY` or `POSITIVE_INFINITY`,
+		the result is unspecified.</haxe_doc>
+		</fround>
+		<isFinite public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `f` is a finite number.
+
+		If `f` is `POSITIVE_INFINITY`, `NEGATIVE_INFINITY` or `NaN`, the result
+		is `false`, otherwise the result is `true`.</haxe_doc>
+		</isFinite>
+		<isNaN public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Tells if `f` is not a valid number.
+
+		If `f` is `NaN`, the result is `true`, otherwise the result is `false`.
+		In particular, both `POSITIVE_INFINITY` and `NEGATIVE_INFINITY` are
+		not considered `NaN`.</haxe_doc>
+		</isNaN>
+		<haxe_doc>This class defines mathematical functions and constants.
+
+	@see https://haxe.org/manual/std-math.html</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":include"><e>"hxMath.h"</e></m>
+		</meta>
+	</class>
 	<class path="Colors" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" module="Rl" extern="1">
 		<LIGHTGRAY public="1" static="1">
 			<t path="Color"/>
@@ -1406,14 +1813,14 @@
 		<impl><class path="_Rl.Config_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1"><meta><m n=":enum"/></meta></class></impl>
 	</abstract>
 	<class path="_Rl.Config_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1"><meta><m n=":enum"/></meta></class>
-	<abstract path="KeyboardKey" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" module="Rl">
+	<abstract path="Keys" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" module="Rl">
 		<this><x path="Int"/></this>
 		<haxe_doc>Keyboard keys (US keyboard layout)</haxe_doc>
 		<meta>
 			<m n=":enum"/>
 			<m n=":include"><e>"raylib.h"</e></m>
 		</meta>
-		<impl><class path="_Rl.KeyboardKey_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1">
+		<impl><class path="_Rl.Keys_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1">
 	<NULL public="1" static="1">
 		<x path="Int"/>
 		<meta><m n=":native"><e>"KEY_NULL"</e></m></meta>
@@ -1841,7 +2248,7 @@
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
-	<class path="_Rl.KeyboardKey_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1">
+	<class path="_Rl.Keys_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1">
 		<NULL public="1" static="1">
 			<x path="Int"/>
 			<meta><m n=":native"><e>"KEY_NULL"</e></m></meta>
@@ -3625,304 +4032,304 @@
 			<m n=":include"><e>"raylib.h"</e></m>
 		</meta>
 		<impl><class path="_Rl.PixelFormat_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1">
-	<PIXELFORMAT_UNCOMPRESSED_GRAYSCALE public="1" set="null" static="1">
+	<UNCOMPRESSED_GRAYSCALE public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_GRAYSCALE"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_GRAYSCALE>
-	<PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA public="1" set="null" static="1">
+	</UNCOMPRESSED_GRAYSCALE>
+	<UNCOMPRESSED_GRAY_ALPHA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA>
-	<PIXELFORMAT_UNCOMPRESSED_R5G6B5 public="1" set="null" static="1">
+	</UNCOMPRESSED_GRAY_ALPHA>
+	<UNCOMPRESSED_R5G6B5 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R5G6B5"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R5G6B5>
-	<PIXELFORMAT_UNCOMPRESSED_R8G8B8 public="1" set="null" static="1">
+	</UNCOMPRESSED_R5G6B5>
+	<UNCOMPRESSED_R8G8B8 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R8G8B8"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R8G8B8>
-	<PIXELFORMAT_UNCOMPRESSED_R5G5B5A1 public="1" set="null" static="1">
+	</UNCOMPRESSED_R8G8B8>
+	<UNCOMPRESSED_R5G5B5A1 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R5G5B5A1"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R5G5B5A1>
-	<PIXELFORMAT_UNCOMPRESSED_R4G4B4A4 public="1" set="null" static="1">
+	</UNCOMPRESSED_R5G5B5A1>
+	<UNCOMPRESSED_R4G4B4A4 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R4G4B4A4"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R4G4B4A4>
-	<PIXELFORMAT_UNCOMPRESSED_R8G8B8A8 public="1" set="null" static="1">
+	</UNCOMPRESSED_R4G4B4A4>
+	<UNCOMPRESSED_R8G8B8A8 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R8G8B8A8"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R8G8B8A8>
-	<PIXELFORMAT_UNCOMPRESSED_R32 public="1" set="null" static="1">
+	</UNCOMPRESSED_R8G8B8A8>
+	<UNCOMPRESSED_R32 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R32"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R32>
-	<PIXELFORMAT_UNCOMPRESSED_R32G32B32 public="1" set="null" static="1">
+	</UNCOMPRESSED_R32>
+	<UNCOMPRESSED_R32G32B32 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R32G32B32"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R32G32B32>
-	<PIXELFORMAT_UNCOMPRESSED_R32G32B32A32 public="1" set="null" static="1">
+	</UNCOMPRESSED_R32G32B32>
+	<UNCOMPRESSED_R32G32B32A32 public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R32G32B32A32"</e></m>
 		</meta>
-	</PIXELFORMAT_UNCOMPRESSED_R32G32B32A32>
-	<PIXELFORMAT_COMPRESSED_DXT1_RGB public="1" set="null" static="1">
+	</UNCOMPRESSED_R32G32B32A32>
+	<COMPRESSED_DXT1_RGB public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT1_RGB"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_DXT1_RGB>
-	<PIXELFORMAT_COMPRESSED_DXT1_RGBA public="1" set="null" static="1">
+	</COMPRESSED_DXT1_RGB>
+	<COMPRESSED_DXT1_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT1_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_DXT1_RGBA>
-	<PIXELFORMAT_COMPRESSED_DXT3_RGBA public="1" set="null" static="1">
+	</COMPRESSED_DXT1_RGBA>
+	<COMPRESSED_DXT3_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT3_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_DXT3_RGBA>
-	<PIXELFORMAT_COMPRESSED_DXT5_RGBA public="1" set="null" static="1">
+	</COMPRESSED_DXT3_RGBA>
+	<COMPRESSED_DXT5_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT5_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_DXT5_RGBA>
-	<PIXELFORMAT_COMPRESSED_ETC1_RGB public="1" set="null" static="1">
+	</COMPRESSED_DXT5_RGBA>
+	<COMPRESSED_ETC1_RGB public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ETC1_RGB"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_ETC1_RGB>
-	<PIXELFORMAT_COMPRESSED_ETC2_RGB public="1" set="null" static="1">
+	</COMPRESSED_ETC1_RGB>
+	<COMPRESSED_ETC2_RGB public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ETC2_RGB"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_ETC2_RGB>
-	<PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA public="1" set="null" static="1">
+	</COMPRESSED_ETC2_RGB>
+	<COMPRESSED_ETC2_EAC_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA>
-	<PIXELFORMAT_COMPRESSED_PVRT_RGB public="1" set="null" static="1">
+	</COMPRESSED_ETC2_EAC_RGBA>
+	<COMPRESSED_PVRT_RGB public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_PVRT_RGB"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_PVRT_RGB>
-	<PIXELFORMAT_COMPRESSED_PVRT_RGBA public="1" set="null" static="1">
+	</COMPRESSED_PVRT_RGB>
+	<COMPRESSED_PVRT_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_PVRT_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_PVRT_RGBA>
-	<PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA public="1" set="null" static="1">
+	</COMPRESSED_PVRT_RGBA>
+	<COMPRESSED_ASTC_4x4_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA>
-	<PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA public="1" set="null" static="1">
+	</COMPRESSED_ASTC_4x4_RGBA>
+	<COMPRESSED_ASTC_8x8_RGBA public="1" set="null" static="1">
 		<x path="UInt"/>
 		<meta>
 			<m n=":enum"/>
 			<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA"</e></m>
 		</meta>
-	</PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA>
+	</COMPRESSED_ASTC_8x8_RGBA>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
 	<class path="_Rl.PixelFormat_Impl_" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" private="1" module="Rl" extern="1" final="1">
-		<PIXELFORMAT_UNCOMPRESSED_GRAYSCALE public="1" set="null" static="1">
+		<UNCOMPRESSED_GRAYSCALE public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_GRAYSCALE"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_GRAYSCALE>
-		<PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA public="1" set="null" static="1">
+		</UNCOMPRESSED_GRAYSCALE>
+		<UNCOMPRESSED_GRAY_ALPHA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_GRAY_ALPHA>
-		<PIXELFORMAT_UNCOMPRESSED_R5G6B5 public="1" set="null" static="1">
+		</UNCOMPRESSED_GRAY_ALPHA>
+		<UNCOMPRESSED_R5G6B5 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R5G6B5"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R5G6B5>
-		<PIXELFORMAT_UNCOMPRESSED_R8G8B8 public="1" set="null" static="1">
+		</UNCOMPRESSED_R5G6B5>
+		<UNCOMPRESSED_R8G8B8 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R8G8B8"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R8G8B8>
-		<PIXELFORMAT_UNCOMPRESSED_R5G5B5A1 public="1" set="null" static="1">
+		</UNCOMPRESSED_R8G8B8>
+		<UNCOMPRESSED_R5G5B5A1 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R5G5B5A1"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R5G5B5A1>
-		<PIXELFORMAT_UNCOMPRESSED_R4G4B4A4 public="1" set="null" static="1">
+		</UNCOMPRESSED_R5G5B5A1>
+		<UNCOMPRESSED_R4G4B4A4 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R4G4B4A4"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R4G4B4A4>
-		<PIXELFORMAT_UNCOMPRESSED_R8G8B8A8 public="1" set="null" static="1">
+		</UNCOMPRESSED_R4G4B4A4>
+		<UNCOMPRESSED_R8G8B8A8 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R8G8B8A8"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R8G8B8A8>
-		<PIXELFORMAT_UNCOMPRESSED_R32 public="1" set="null" static="1">
+		</UNCOMPRESSED_R8G8B8A8>
+		<UNCOMPRESSED_R32 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R32"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R32>
-		<PIXELFORMAT_UNCOMPRESSED_R32G32B32 public="1" set="null" static="1">
+		</UNCOMPRESSED_R32>
+		<UNCOMPRESSED_R32G32B32 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R32G32B32"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R32G32B32>
-		<PIXELFORMAT_UNCOMPRESSED_R32G32B32A32 public="1" set="null" static="1">
+		</UNCOMPRESSED_R32G32B32>
+		<UNCOMPRESSED_R32G32B32A32 public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_UNCOMPRESSED_R32G32B32A32"</e></m>
 			</meta>
-		</PIXELFORMAT_UNCOMPRESSED_R32G32B32A32>
-		<PIXELFORMAT_COMPRESSED_DXT1_RGB public="1" set="null" static="1">
+		</UNCOMPRESSED_R32G32B32A32>
+		<COMPRESSED_DXT1_RGB public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT1_RGB"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_DXT1_RGB>
-		<PIXELFORMAT_COMPRESSED_DXT1_RGBA public="1" set="null" static="1">
+		</COMPRESSED_DXT1_RGB>
+		<COMPRESSED_DXT1_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT1_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_DXT1_RGBA>
-		<PIXELFORMAT_COMPRESSED_DXT3_RGBA public="1" set="null" static="1">
+		</COMPRESSED_DXT1_RGBA>
+		<COMPRESSED_DXT3_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT3_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_DXT3_RGBA>
-		<PIXELFORMAT_COMPRESSED_DXT5_RGBA public="1" set="null" static="1">
+		</COMPRESSED_DXT3_RGBA>
+		<COMPRESSED_DXT5_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_DXT5_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_DXT5_RGBA>
-		<PIXELFORMAT_COMPRESSED_ETC1_RGB public="1" set="null" static="1">
+		</COMPRESSED_DXT5_RGBA>
+		<COMPRESSED_ETC1_RGB public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ETC1_RGB"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_ETC1_RGB>
-		<PIXELFORMAT_COMPRESSED_ETC2_RGB public="1" set="null" static="1">
+		</COMPRESSED_ETC1_RGB>
+		<COMPRESSED_ETC2_RGB public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ETC2_RGB"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_ETC2_RGB>
-		<PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA public="1" set="null" static="1">
+		</COMPRESSED_ETC2_RGB>
+		<COMPRESSED_ETC2_EAC_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_ETC2_EAC_RGBA>
-		<PIXELFORMAT_COMPRESSED_PVRT_RGB public="1" set="null" static="1">
+		</COMPRESSED_ETC2_EAC_RGBA>
+		<COMPRESSED_PVRT_RGB public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_PVRT_RGB"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_PVRT_RGB>
-		<PIXELFORMAT_COMPRESSED_PVRT_RGBA public="1" set="null" static="1">
+		</COMPRESSED_PVRT_RGB>
+		<COMPRESSED_PVRT_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_PVRT_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_PVRT_RGBA>
-		<PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA public="1" set="null" static="1">
+		</COMPRESSED_PVRT_RGBA>
+		<COMPRESSED_ASTC_4x4_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_ASTC_4x4_RGBA>
-		<PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA public="1" set="null" static="1">
+		</COMPRESSED_ASTC_4x4_RGBA>
+		<COMPRESSED_ASTC_8x8_RGBA public="1" set="null" static="1">
 			<x path="UInt"/>
 			<meta>
 				<m n=":enum"/>
 				<m n=":native"><e>"PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA"</e></m>
 			</meta>
-		</PIXELFORMAT_COMPRESSED_ASTC_8x8_RGBA>
+		</COMPRESSED_ASTC_8x8_RGBA>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<abstract path="TextureFilter" params="" file="D:\Haxe\haxe\lib\raylib-hx/git/source/Rl.cpp.hx" module="Rl">
@@ -5071,10 +5478,10 @@
 			</f>
 			<meta><m n=":native"><e>"SetTargetFPS"</e></m></meta>
 		</setTargetFPS>
-		<GetFrameTime public="1" set="method" static="1">
+		<getFrameTime public="1" set="method" static="1">
 			<f a=""><x path="Float"/></f>
 			<meta><m n=":native"><e>"GetFrameTime"</e></m></meta>
-		</GetFrameTime>
+		</getFrameTime>
 		<getFPS public="1" set="method" static="1">
 			<f a=""><x path="Int"/></f>
 			<meta><m n=":native"><e>"GetFPS"</e></m></meta>
@@ -8575,6 +8982,120 @@
 	String, it is passed through `Std.string()` first.
 
 	@see https://haxe.org/manual/std-String.html</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="StringBuf" params="" file="D:\Haxe\haxe\std/cpp/_std/StringBuf.hx">
+		<b><c path="Array"><c path="String"/></c></b>
+		<charBuf><c path="Array"><x path="cpp.Char"/></c></charBuf>
+		<charBufAsString set="method" line="37"><f a=""><c path="String"/></f></charBufAsString>
+		<flush set="method" line="43"><f a=""><x path="Void"/></f></flush>
+		<toString public="1" set="method" line="92">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the content of `this` StringBuf as String.
+
+		The buffer is not emptied by this operation.</haxe_doc>
+		</toString>
+		<new public="1" set="method" line="35">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new StringBuf instance.
+
+		This may involve initialization of the internal buffer.</haxe_doc>
+		</new>
+		<haxe_doc>A String buffer is an efficient way to build a big string by appending small
+	elements together.
+
+	Unlike String, an instance of StringBuf is not immutable in the sense that
+	it can be passed as argument to functions which modify it by appending more
+	values.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="StringTools" params="" file="D:\Haxe\haxe\std/StringTools.hx">
+		<replace public="1" set="method" line="412" static="1">
+			<f a="s:sub:by">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Replace all occurrences of the String `sub` in the String `s` by the
+		String `by`.
+
+		If `sub` is the empty String `""`, `by` is inserted after each character
+		of `s` except the last one. If `by` is also the empty String `""`, `s`
+		remains unchanged.
+
+		If `sub` or `by` are null, the result is unspecified.</haxe_doc>
+		</replace>
+		<haxe_doc>This class provides advanced methods on Strings. It is ideally used with
+	`using StringTools` and then acts as an [extension](https://haxe.org/manual/lf-static-extension.html)
+	to the `String` class.
+
+	If the first argument to any of the methods is null, the result is
+	unspecified.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<class path="Sys" params="" file="D:\Haxe\haxe\std/cpp/_std/Sys.hx">
+		<println public="1" set="method" line="31" static="1">
+			<f a="v">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Prints any value to the standard output, followed by a newline.
+		On Windows, this function outputs a CRLF newline.
+		LF newlines are printed on all other platforms.</haxe_doc>
+		</println>
+		<args public="1" set="method" line="55" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns all the arguments that were passed in the command line.
+		This does not include the interpreter or the name of the program file.
+
+		(java)(eval) On Windows, non-ASCII Unicode arguments will not work correctly.
+
+		(cs) Non-ASCII Unicode arguments will not work correctly.</haxe_doc>
+		</args>
+		<getCwd public="1" set="method" line="78" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Gets the current working directory (usually the one in which the program was started).</haxe_doc>
+		</getCwd>
+		<setCwd public="1" set="method" line="82" static="1">
+			<f a="s">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Changes the current working directory.
+
+		(java) This functionality is not available on Java; calling this function will throw.</haxe_doc>
+		</setCwd>
+		<systemName public="1" set="method" line="86" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the type of the current system. Possible values are:
+		 - `"Windows"`
+		 - `"Linux"`
+		 - `"BSD"`
+		 - `"Mac"`</haxe_doc>
+		</systemName>
+		<programPath public="1" set="method" line="124" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the absolute path to the current program file that we are running.
+		Concretely, for an executable binary, it returns the path to the binary.
+		For a script (e.g. a PHP file), it returns the path to the script.</haxe_doc>
+		</programPath>
+		<haxe_doc>This class provides access to various base functions of system platforms.
+	Look in the `sys` package for more system APIs.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 	<class path="Type" params="" file="D:\Haxe\haxe\std/cpp/_std/Type.hx">
 		<nativeEnumEq set="method" static="1">
@@ -8618,6 +9139,33 @@
 		<meta><m n=":transitive"/></meta>
 		<impl><class path="_UInt.UInt_Impl_" params="" file="D:\Haxe\haxe\std/UInt.hx" private="1" module="UInt" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<class path="cli.CLI" params="" file="cli/CLI.hx">
+		<workingDir expr="&quot;&quot;" line="12" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>""</e></m></meta>
+		</workingDir>
+		<main set="method" line="14" static="1">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":keep"/></meta>
+		</main>
+		<processCmd set="method" line="18" static="1"><f a=""><x path="Void"/></f></processCmd>
+		<callCmd set="method" line="46" static="1"><f a="cmd:?args">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+	<x path="Void"/>
+</f></callCmd>
+		<recursiveCopyDir set="method" line="75" static="1">
+			<f a="srcPath:dstPath:?overwrite:?filter:?exclude" v="::true::false">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, overwrite : true }</e></m></meta>
+		</recursiveCopyDir>
+	</class>
 	<class path="cpp.ArrayBase" params="" file="D:\Haxe\haxe\std/cpp/ArrayBase.hx" extern="1">
 		<length public="1" set="null"><x path="Int"/></length>
 		<getElementSize public="1" set="method"><f a=""><x path="Int"/></f></getElementSize>
@@ -8968,6 +9516,119 @@
 			</f>
 			<meta><m n=":native"><e>"_hx_array_set_size_exact"</e></m></meta>
 		</setSize>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="cpp.NativeFile" params="" file="D:\Haxe\haxe\std/cpp/NativeFile.hx" extern="1">
+		<file_open public="1" set="method" static="1">
+			<f a="fname:r">
+				<c path="String"/>
+				<c path="String"/>
+				<d/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_open"</e></m></meta>
+		</file_open>
+		<file_close public="1" set="method" static="1">
+			<f a="handle">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_close"</e></m></meta>
+		</file_close>
+		<file_write public="1" set="method" static="1">
+			<f a="handle:s:p:n">
+				<d/>
+				<t path="haxe.io.BytesData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_write"</e></m></meta>
+		</file_write>
+		<file_write_char public="1" set="method" static="1">
+			<f a="handle:c">
+				<d/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_write_char"</e></m></meta>
+		</file_write_char>
+		<file_read public="1" set="method" static="1">
+			<f a="handle:s:p:n">
+				<d/>
+				<t path="haxe.io.BytesData"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_read"</e></m></meta>
+		</file_read>
+		<file_read_char public="1" set="method" static="1">
+			<f a="handle">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_read_char"</e></m></meta>
+		</file_read_char>
+		<file_seek public="1" set="method" static="1">
+			<f a="handle:pos:kind">
+				<d/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_seek"</e></m></meta>
+		</file_seek>
+		<file_tell public="1" set="method" static="1">
+			<f a="handle">
+				<d/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_tell"</e></m></meta>
+		</file_tell>
+		<file_eof public="1" set="method" static="1">
+			<f a="handle">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_eof"</e></m></meta>
+		</file_eof>
+		<file_flush public="1" set="method" static="1">
+			<f a="handle">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_flush"</e></m></meta>
+		</file_flush>
+		<file_contents_string public="1" set="method" static="1">
+			<f a="name">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_contents_string"</e></m></meta>
+		</file_contents_string>
+		<file_contents_bytes public="1" set="method" static="1">
+			<f a="name">
+				<c path="String"/>
+				<t path="haxe.io.BytesData"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_contents_bytes"</e></m></meta>
+		</file_contents_bytes>
+		<file_stdin public="1" set="method" static="1">
+			<f a=""><d/></f>
+			<meta><m n=":native"><e>"_hx_std_file_stdin"</e></m></meta>
+		</file_stdin>
+		<file_stdout public="1" set="method" static="1">
+			<f a=""><d/></f>
+			<meta><m n=":native"><e>"_hx_std_file_stdout"</e></m></meta>
+		</file_stdout>
+		<file_stderr public="1" set="method" static="1">
+			<f a=""><d/></f>
+			<meta><m n=":native"><e>"_hx_std_file_stderr"</e></m></meta>
+		</file_stderr>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/std/Build.xml\"/>"]]></e></m>
+		</meta>
 	</class>
 	<class path="cpp.NativeString" params="" file="D:\Haxe\haxe\std/cpp/NativeString.hx" extern="1">
 		<raw public="1" get="inline" set="null" line="26" static="1">
@@ -9085,6 +9746,180 @@
 			</f>
 			<meta><m n=":native"><e>"_hx_utf8_decode_advance"</e></m></meta>
 		</utf8DecodeAdvance>
+	</class>
+	<class path="cpp.NativeSys" params="" file="D:\Haxe\haxe\std/cpp/NativeSys.hx" extern="1">
+		<print public="1" set="method" static="1">
+			<f a="v">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"__hxcpp_print"</e></m></meta>
+		</print>
+		<println public="1" set="method" static="1">
+			<f a="v">
+				<d/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"__hxcpp_println"</e></m></meta>
+		</println>
+		<get_env public="1" set="method" static="1">
+			<f a="v">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_get_env"</e></m></meta>
+		</get_env>
+		<put_env public="1" set="method" static="1">
+			<f a="e:v">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_put_env"</e></m></meta>
+		</put_env>
+		<sys_sleep public="1" set="method" static="1">
+			<f a="f">
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_sleep"</e></m></meta>
+		</sys_sleep>
+		<set_time_locale public="1" set="method" static="1">
+			<f a="l">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_set_time_locale"</e></m></meta>
+		</set_time_locale>
+		<get_cwd public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"_hx_std_get_cwd"</e></m></meta>
+		</get_cwd>
+		<set_cwd public="1" set="method" static="1">
+			<f a="d">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_set_cwd"</e></m></meta>
+		</set_cwd>
+		<sys_string public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"_hx_std_sys_string"</e></m></meta>
+		</sys_string>
+		<sys_is64 public="1" set="method" static="1">
+			<f a=""><x path="Bool"/></f>
+			<meta><m n=":native"><e>"_hx_std_sys_is64"</e></m></meta>
+		</sys_is64>
+		<sys_command public="1" set="method" static="1">
+			<f a="cmd">
+				<c path="String"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_command"</e></m></meta>
+		</sys_command>
+		<sys_exit public="1" set="method" static="1">
+			<f a="code">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_exit"</e></m></meta>
+		</sys_exit>
+		<sys_exists public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_exists"</e></m></meta>
+		</sys_exists>
+		<file_delete public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_delete"</e></m></meta>
+		</file_delete>
+		<sys_rename public="1" set="method" static="1">
+			<f a="path:newname">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_rename"</e></m></meta>
+		</sys_rename>
+		<sys_stat public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<d/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_stat"</e></m></meta>
+		</sys_stat>
+		<sys_file_type public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_file_type"</e></m></meta>
+		</sys_file_type>
+		<sys_create_dir public="1" set="method" static="1">
+			<f a="path:mode">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_create_dir"</e></m></meta>
+		</sys_create_dir>
+		<sys_remove_dir public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_remove_dir"</e></m></meta>
+		</sys_remove_dir>
+		<sys_time public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<meta><m n=":native"><e>"_hx_std_sys_time"</e></m></meta>
+		</sys_time>
+		<sys_cpu_time public="1" set="method" static="1">
+			<f a=""><x path="Float"/></f>
+			<meta><m n=":native"><e>"_hx_std_sys_cpu_time"</e></m></meta>
+		</sys_cpu_time>
+		<sys_read_dir public="1" set="method" static="1">
+			<f a="p">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_read_dir"</e></m></meta>
+		</sys_read_dir>
+		<file_full_path public="1" set="method" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_file_full_path"</e></m></meta>
+		</file_full_path>
+		<sys_exe_path public="1" set="method" static="1">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":native"><e>"_hx_std_sys_exe_path"</e></m></meta>
+		</sys_exe_path>
+		<sys_env public="1" set="method" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<meta><m n=":native"><e>"_hx_std_sys_env"</e></m></meta>
+		</sys_env>
+		<sys_getch public="1" set="method" static="1">
+			<f a="b">
+				<x path="Bool"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_std_sys_getch"</e></m></meta>
+		</sys_getch>
+		<sys_get_pid public="1" set="method" static="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":native"><e>"_hx_std_sys_get_pid"</e></m></meta>
+		</sys_get_pid>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/std/Build.xml\"/>"]]></e></m>
+		</meta>
 	</class>
 	<class path="cpp.ObjectType" params="" file="D:\Haxe\haxe\std/cpp/ObjectType.hx" extern="1">
 		<vtUnknown public="1" get="inline" set="null" expr="-1" line="26" static="1">
@@ -9243,6 +10078,7 @@
 		<destroy public="1" set="method"><f a=""><x path="Void"/></f></destroy>
 		<destroyArray public="1" set="method"><f a=""><x path="Void"/></f></destroyArray>
 		<meta>
+			<m n=":directlyUsed"/>
 			<m n=":coreType"/>
 			<m n=":semantics"><e>variable</e></m>
 		</meta>
@@ -9360,6 +10196,7 @@
 	type, the underlying type will be `Dynamic`.]]></haxe_doc>
 		<impl><class path="haxe._Constraints.Constructible_Impl_" params="" file="D:\Haxe\haxe\std/haxe/Constraints.hx" private="1" module="haxe.Constraints" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<class path="haxe.IMap" params="K:V" file="D:\Haxe\haxe\std/haxe/Constraints.hx" module="haxe.Constraints" interface="1"><meta><m n=":keep"/></meta></class>
 	<class path="haxe.EnumTools" params="" file="D:\Haxe\haxe\std/haxe/EnumTools.hx" extern="1">
 		<getName public="1" params="T" get="inline" set="null" line="52" static="1">
 			<f a="e">
@@ -9511,6 +10348,713 @@
 	If the first argument to any of the methods is `null`, the result is
 	unspecified.</haxe_doc>
 	</class>
+	<class path="haxe.Exception" params="" file="D:\Haxe\haxe\std/cpp/_std/haxe/Exception.hx">
+		<caught set="method" line="18" static="1"><f a="value">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+</f></caught>
+		<thrown set="method" line="26" static="1"><f a="value">
+	<x path="Any"/>
+	<x path="Any"/>
+</f></thrown>
+		<message public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>Exception message.</haxe_doc>
+		</message>
+		<native public="1" get="accessor" set="null">
+			<x path="Any"/>
+			<haxe_doc>Native exception, which caused this exception.</haxe_doc>
+		</native>
+		<__exceptionMessage>
+			<c path="String"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__exceptionMessage>
+		<__nativeStack>
+			<c path="Array"><c path="String"/></c>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeStack>
+		<__skipStack expr="0">
+			<x path="Int"/>
+			<meta>
+				<m n=":value"><e>0</e></m>
+				<m n=":noCompletion"/>
+				<m n=":ifFeature"><e>"haxe.Exception.get_stack"</e></m>
+			</meta>
+		</__skipStack>
+		<__nativeException>
+			<x path="Any"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__nativeException>
+		<__previousException>
+			<x path="Null"><c path="haxe.Exception"/></x>
+			<meta><m n=":noCompletion"/></meta>
+		</__previousException>
+		<unwrap set="method" line="48"><f a=""><x path="Any"/></f></unwrap>
+		<toString public="1" set="method" line="52">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns exception message.</haxe_doc>
+		</toString>
+		<get_message set="method" line="66"><f a=""><c path="String"/></f></get_message>
+		<get_native final="1" set="method" line="74"><f a=""><x path="Any"/></f></get_native>
+		<new public="1" set="method" line="36">
+			<f a="message:?previous:?native">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new Exception instance.
+
+		The `previous` argument could be used for exception chaining.
+
+		The `native` argument is for internal usage only.
+		There is no need to provide `native` argument manually and no need to keep it
+		upon extending `haxe.Exception` unless you know what you're doing.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[Base class for exceptions.
+
+	If this class (or derivatives) is used to catch an exception, then
+	`haxe.CallStack.exceptionStack()` will not return a stack for the exception
+	caught. Use `haxe.Exception.stack` property instead:
+	```haxe
+	try {
+		throwSomething();
+	} catch(e:Exception) {
+		trace(e.stack);
+	}
+	```
+
+	Custom exceptions should extend this class:
+	```haxe
+	class MyException extends haxe.Exception {}
+	//...
+	throw new MyException('terrible exception');
+	```
+
+	`haxe.Exception` is also a wildcard type to catch any exception:
+	```haxe
+	try {
+		throw 'Catch me!';
+	} catch(e:haxe.Exception) {
+		trace(e.message); // Output: Catch me!
+	}
+	```
+
+	To rethrow an exception just throw it again.
+	Haxe will try to rethrow an original native exception whenever possible.
+	```haxe
+	try {
+		var a:Array<Int> = null;
+		a.push(1); // generates target-specific null-pointer exception
+	} catch(e:haxe.Exception) {
+		throw e; // rethrows native exception instead of haxe.Exception
+	}
+	```]]></haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<abstract path="haxe.Int32" params="" file="D:\Haxe\haxe\std/haxe/Int32.hx">
+		<from><icast><x path="Int"/></icast></from>
+		<this><x path="Int"/></this>
+		<to>
+			<icast><x path="Int"/></icast>
+			<icast field="toFloat"><x path="Float"/></icast>
+		</to>
+		<haxe_doc>Int32 provides a 32-bit integer with consistent overflow behavior across
+	all platforms.</haxe_doc>
+		<meta><m n=":transitive"/></meta>
+		<impl><class path="haxe._Int32.Int32_Impl_" params="" file="D:\Haxe\haxe\std/haxe/Int32.hx" private="1" module="haxe.Int32" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<class path="haxe._Int64.___Int64" params="" file="D:\Haxe\haxe\std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64" extern="1">
+		<make public="1" set="method" static="1">
+			<f a="high:low">
+				<x path="haxe.Int32"/>
+				<x path="haxe.Int32"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_make"</e></m></meta>
+		</make>
+		<ofInt public="1" set="method" static="1">
+			<f a="value">
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>" ::cpp::Int64Struct"</e></m></meta>
+		</ofInt>
+		<isInt64 public="1" set="method" static="1">
+			<f a="d">
+				<d/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>" ::cpp::Int64Struct::is"</e></m></meta>
+		</isInt64>
+		<isNeg public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_is_neg"</e></m></meta>
+		</isNeg>
+		<isZero public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_is_zero"</e></m></meta>
+		</isZero>
+		<compare public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_compare"</e></m></meta>
+		</compare>
+		<ucompare public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_ucompare"</e></m></meta>
+		</ucompare>
+		<toString public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_to_string"</e></m></meta>
+		</toString>
+		<neg public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_neg"</e></m></meta>
+		</neg>
+		<preIncrement public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_pre_increment"</e></m></meta>
+		</preIncrement>
+		<postIncrement public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_post_increment"</e></m></meta>
+		</postIncrement>
+		<preDecrement public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_pre_decrement"</e></m></meta>
+		</preDecrement>
+		<postDecrement public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_post_decrement"</e></m></meta>
+		</postDecrement>
+		<add public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_add"</e></m></meta>
+		</add>
+		<addInt public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_add"</e></m></meta>
+		</addInt>
+		<sub public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_sub"</e></m></meta>
+		</sub>
+		<subInt public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_sub"</e></m></meta>
+		</subInt>
+		<intSub public="1" set="method" static="1">
+			<f a="a:b">
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_sub"</e></m></meta>
+		</intSub>
+		<mul public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_mul"</e></m></meta>
+		</mul>
+		<div public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_div"</e></m></meta>
+		</div>
+		<mod public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_mod"</e></m></meta>
+		</mod>
+		<eq public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_eq"</e></m></meta>
+		</eq>
+		<eqInt public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_eq"</e></m></meta>
+		</eqInt>
+		<neq public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_neq"</e></m></meta>
+		</neq>
+		<neqInt public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_neq"</e></m></meta>
+		</neqInt>
+		<complement public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_complement"</e></m></meta>
+		</complement>
+		<bitAnd public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_and"</e></m></meta>
+		</bitAnd>
+		<bitOr public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_or"</e></m></meta>
+		</bitOr>
+		<bitXor public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_xor"</e></m></meta>
+		</bitXor>
+		<shl public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_shl"</e></m></meta>
+		</shl>
+		<shr public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_shr"</e></m></meta>
+		</shr>
+		<ushr public="1" set="method" static="1">
+			<f a="a:b">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="Int"/>
+				<t path="haxe._Int64.__Int64"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_ushr"</e></m></meta>
+		</ushr>
+		<high public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="haxe.Int32"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_high"</e></m></meta>
+		</high>
+		<low public="1" set="method" static="1">
+			<f a="a">
+				<t path="haxe._Int64.__Int64"/>
+				<x path="haxe.Int32"/>
+			</f>
+			<meta><m n=":native"><e>"_hx_int64_low"</e></m></meta>
+		</low>
+		<meta>
+			<m n=":notNull"/>
+			<m n=":include"><e>"cpp/Int64.h"</e></m>
+			<m n=":native"><e>"cpp::Int64Struct"</e></m>
+		</meta>
+	</class>
+	<typedef path="haxe._Int64.__Int64" params="" file="D:\Haxe\haxe\std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64"><c path="haxe._Int64.___Int64"/></typedef>
+	<abstract path="haxe.Int64" params="" file="D:\Haxe\haxe\std/cpp/_std/haxe/Int64.hx">
+		<from>
+			<icast><t path="haxe._Int64.__Int64"/></icast>
+			<icast field="ofInt"><x path="Int"/></icast>
+		</from>
+		<this><t path="haxe._Int64.__Int64"/></this>
+		<to><icast><t path="haxe._Int64.__Int64"/></icast></to>
+		<meta>
+			<m n=":coreApi"/>
+			<m n=":transitive"/>
+		</meta>
+		<impl><class path="haxe._Int64.Int64_Impl_" params="" file="D:\Haxe\haxe\std/cpp/_std/haxe/Int64.hx" private="1" module="haxe.Int64" final="1"><meta>
+	<m n=":keep"/>
+	<m n=":coreApi"/>
+</meta></class></impl>
+	</abstract>
+	<class path="haxe.NativeStackTrace" params="" file="D:\Haxe\haxe\std/cpp/_std/haxe/NativeStackTrace.hx">
+		<saveStack public="1" get="inline" set="null" line="12" static="1">
+			<f a="exception">
+				<x path="Any"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":ifFeature"><e>"haxe.NativeStackTrace.exceptionStack"</e></m></meta>
+		</saveStack>
+		<callStack public="1" set="method" line="16" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":noDebug"/>
+			</meta>
+		</callStack>
+		<exceptionStack public="1" set="method" line="21" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":noDebug"/>
+			</meta>
+		</exceptionStack>
+		<haxe_doc>Do not use manually.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+		</meta>
+	</class>
+	<typedef path="haxe.PosInfos" params="" file="D:\Haxe\haxe\std/haxe/PosInfos.hx">
+		<a>
+			<methodName><c path="String"/></methodName>
+			<lineNumber><x path="Int"/></lineNumber>
+			<fileName><c path="String"/></fileName>
+			<customParams>
+				<x path="Null"><c path="Array"><d/></c></x>
+				<meta><m n=":optional"/></meta>
+			</customParams>
+			<className><c path="String"/></className>
+		</a>
+		<haxe_doc>`PosInfos` is a magic type which can be used to generate position information
+	into the output for debugging use.
+
+	If a function has a final optional argument of this type, i.e.
+	`(..., ?pos:haxe.PosInfos)`, each call to that function which does not assign
+	a value to that argument has its position added as call argument.
+
+	This can be used to track positions of calls in e.g. a unit testing
+	framework.</haxe_doc>
+	</typedef>
+	<class path="haxe.ValueException" params="" file="D:\Haxe\haxe\std/haxe/ValueException.hx">
+		<extends path="haxe.Exception"/>
+		<value public="1" set="null">
+			<x path="Any"/>
+			<haxe_doc>Thrown value.</haxe_doc>
+		</value>
+		<unwrap set="method" line="35" override="1">
+			<f a=""><x path="Any"/></f>
+			<haxe_doc>Extract an originally thrown value.
+
+		This method must return the same value on subsequent calls.
+		Used internally for catching non-native exceptions.
+		Do _not_ override unless you know what you are doing.</haxe_doc>
+		</unwrap>
+		<new public="1" set="method" line="23"><f a="value:?previous:?native">
+	<x path="Any"/>
+	<c path="haxe.Exception"/>
+	<x path="Any"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception containing arbitrary value.
+
+	This class is automatically used for throwing values, which don't extend `haxe.Exception`
+	or native exception type.
+	For example:
+	```haxe
+	throw "Terrible error";
+	```
+	will be compiled to
+	```haxe
+	throw new ValueException("Terrible error");
+	```</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<class path="haxe.ds.TreeNode" params="K:V" file="D:\Haxe\haxe\std/haxe/ds/BalancedTree.hx" module="haxe.ds.BalancedTree">
+		<left public="1"><c path="haxe.ds.TreeNode">
+	<c path="haxe.ds.TreeNode.K"/>
+	<c path="haxe.ds.TreeNode.V"/>
+</c></left>
+		<right public="1"><c path="haxe.ds.TreeNode">
+	<c path="haxe.ds.TreeNode.K"/>
+	<c path="haxe.ds.TreeNode.V"/>
+</c></right>
+		<key public="1"><c path="haxe.ds.TreeNode.K"/></key>
+		<value public="1"><c path="haxe.ds.TreeNode.V"/></value>
+		<_height><x path="Int"/></_height>
+		<get_height public="1" get="inline" set="null" line="264"><f a=""><x path="Int"/></f></get_height>
+		<new public="1" set="method" line="252">
+			<f a="l:k:v:r:?h" v="::::-1">
+				<c path="haxe.ds.TreeNode">
+					<c path="haxe.ds.TreeNode.K"/>
+					<c path="haxe.ds.TreeNode.V"/>
+				</c>
+				<c path="haxe.ds.TreeNode.K"/>
+				<c path="haxe.ds.TreeNode.V"/>
+				<c path="haxe.ds.TreeNode">
+					<c path="haxe.ds.TreeNode.K"/>
+					<c path="haxe.ds.TreeNode.V"/>
+				</c>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ h : -1 }</e></m></meta>
+		</new>
+		<haxe_doc>A tree node of `haxe.ds.BalancedTree`.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<abstract path="haxe.ds.HashMap" params="K:V" file="D:\Haxe\haxe\std/haxe/ds/HashMap.hx">
+		<this><c path="haxe.ds._HashMap.HashMapData">
+	<c path="haxe.ds.HashMap.K"/>
+	<c path="haxe.ds.HashMap.V"/>
+</c></this>
+		<haxe_doc>HashMap allows mapping of hashable objects to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+		<impl><class path="haxe.ds._HashMap.HashMap_Impl_" params="" file="D:\Haxe\haxe\std/haxe/ds/HashMap.hx" private="1" module="haxe.ds.HashMap" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<abstract path="haxe.ds.Map" params="K:V" file="D:\Haxe\haxe\std/haxe/ds/Map.hx">
+		<from>
+			<icast field="fromStringMap"><c path="haxe.ds.StringMap"><c path="fromStringMap.V"/></c></icast>
+			<icast field="fromIntMap"><c path="haxe.ds.IntMap"><c path="fromIntMap.V"/></c></icast>
+			<icast field="fromObjectMap"><c path="haxe.ds.ObjectMap">
+	<c path="fromObjectMap.K"/>
+	<c path="fromObjectMap.V"/>
+</c></icast>
+		</from>
+		<this><c path="haxe.IMap">
+	<c path="haxe.ds.Map.K"/>
+	<c path="haxe.ds.Map.V"/>
+</c></this>
+		<to>
+			<icast field="toStringMap"><c path="haxe.ds.StringMap"><c path="toStringMap.V"/></c></icast>
+			<icast field="toIntMap"><c path="haxe.ds.IntMap"><c path="toIntMap.V"/></c></icast>
+			<icast field="toEnumValueMapMap"><c path="haxe.ds.EnumValueMap">
+	<c path="toEnumValueMapMap.K"/>
+	<c path="toEnumValueMapMap.V"/>
+</c></icast>
+			<icast field="toObjectMap"><c path="haxe.ds.ObjectMap">
+	<c path="toObjectMap.K"/>
+	<c path="toObjectMap.V"/>
+</c></icast>
+		</to>
+		<haxe_doc><![CDATA[Map allows key to value mapping for arbitrary value types, and many key
+	types.
+
+	This is a multi-type abstract, it is instantiated as one of its
+	specialization types depending on its type parameters.
+
+	A Map can be instantiated without explicit type parameters. Type inference
+	will then determine the type parameters from the usage.
+
+	Maps can also be created with `[key1 => value1, key2 => value2]` syntax.
+
+	Map is an abstract type, it is not available at runtime.
+
+	@see https://haxe.org/manual/std-Map.html]]></haxe_doc>
+		<meta>
+			<m n=":transitive"/>
+			<m n=":multiType"><e>@:followWithAbstracts K</e></m>
+		</meta>
+		<impl><class path="haxe.ds._Map.Map_Impl_" params="" file="D:\Haxe\haxe\std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
+	<_new public="1" set="method" static="1">
+		<f a=""><x path="haxe.ds.Map">
+	<c path="haxe.ds.Map.K"/>
+	<c path="haxe.ds.Map.V"/>
+</x></f>
+		<meta><m n=":noCompletion"/></meta>
+		<haxe_doc>Creates a new Map.
+
+		This becomes a constructor call to one of the specialization types in
+		the output. The rules for that are as follows:
+
+		1. if `K` is a `String`, `haxe.ds.StringMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
+		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
+		5. if `K` is any other type, it causes a compile-time error
+
+		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
+	</_new>
+	<meta><m n=":keep"/></meta>
+</class></impl>
+	</abstract>
+	<class path="haxe.ds._Map.Map_Impl_" params="" file="D:\Haxe\haxe\std/haxe/ds/Map.hx" private="1" module="haxe.ds.Map" final="1">
+		<_new public="1" set="method" static="1">
+			<f a=""><x path="haxe.ds.Map">
+	<c path="haxe.ds.Map.K"/>
+	<c path="haxe.ds.Map.V"/>
+</x></f>
+			<meta><m n=":noCompletion"/></meta>
+			<haxe_doc>Creates a new Map.
+
+		This becomes a constructor call to one of the specialization types in
+		the output. The rules for that are as follows:
+
+		1. if `K` is a `String`, `haxe.ds.StringMap` is used
+		2. if `K` is an `Int`, `haxe.ds.IntMap` is used
+		3. if `K` is an `EnumValue`, `haxe.ds.EnumValueMap` is used
+		4. if `K` is any other class or structure, `haxe.ds.ObjectMap` is used
+		5. if `K` is any other type, it causes a compile-time error
+
+		(Cpp) Map does not use weak keys on `ObjectMap` by default.</haxe_doc>
+		</_new>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<abstract path="haxe.ds.ReadOnlyArray" params="T" file="D:\Haxe\haxe\std/haxe/ds/ReadOnlyArray.hx">
+		<from><icast><c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c></icast></from>
+		<this><c path="Array"><c path="haxe.ds.ReadOnlyArray.T"/></c></this>
+		<to><icast><t path="Iterable"><c path="haxe.ds.ReadOnlyArray.T"/></t></icast></to>
+		<haxe_doc>`ReadOnlyArray` is an abstract over an ordinary `Array` which only exposes
+	APIs that don't modify the instance, hence "read-only".
+
+	Note that this doesn't necessarily mean that the instance is *immutable*.
+	Other code holding a reference to the underlying `Array` can still modify it,
+	and the reference can be obtained with a `cast`.</haxe_doc>
+		<meta><m n=":forward">
+	<e>copy</e>
+	<e>filter</e>
+	<e>indexOf</e>
+	<e>iterator</e>
+	<e>keyValueIterator</e>
+	<e>join</e>
+	<e>lastIndexOf</e>
+	<e>map</e>
+	<e>slice</e>
+	<e>contains</e>
+	<e>toString</e>
+</m></meta>
+		<impl><class path="haxe.ds._ReadOnlyArray.ReadOnlyArray_Impl_" params="" file="D:\Haxe\haxe\std/haxe/ds/ReadOnlyArray.hx" private="1" module="haxe.ds.ReadOnlyArray" final="1"><meta><m n=":keep"/></meta></class></impl>
+	</abstract>
+	<class path="haxe.ds.StringMap" params="T" file="D:\Haxe\haxe\std/cpp/_std/haxe/ds/StringMap.hx">
+		<implements path="haxe.IMap">
+			<c path="String"/>
+			<c path="haxe.ds.StringMap.T"/>
+		</implements>
+		<h>
+			<d/>
+			<meta><m n=":ifFeature"><e>"haxe.ds.StringMap.*"</e></m></meta>
+		</h>
+		<set public="1" set="method" line="60">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="haxe.ds.StringMap.T"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.set`</haxe_doc>
+		</set>
+		<get public="1" set="method" line="64">
+			<f a="key">
+				<c path="String"/>
+				<x path="Null"><c path="haxe.ds.StringMap.T"/></x>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.get`</haxe_doc>
+		</get>
+		<exists public="1" set="method" line="68">
+			<f a="key">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.exists`</haxe_doc>
+		</exists>
+		<keys public="1" set="method" line="76">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.keys`
+
+		(cs, java) Implementation detail: Do not `set()` any new value while
+		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
+		</keys>
+		<new public="1" set="method" line="58">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new StringMap.</haxe_doc>
+		</new>
+		<haxe_doc>StringMap allows mapping of String keys to arbitrary values.
+
+	See `Map` for documentation details.
+
+	@see https://haxe.org/manual/std-Map.html</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":headerClassCode"><e><![CDATA["\r\n  inline void set(String key, ::null value) { __string_hash_set(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, bool value) { __string_hash_set(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, unsigned char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, signed char value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, short value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, unsigned short value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, int value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, unsigned int value) { __string_hash_set_int(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, float value) { __string_hash_set_float(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, double value) { __string_hash_set_float(HX_MAP_THIS,key,value); }\r\n  inline void set(String key, ::String value) { __string_hash_set_string(HX_MAP_THIS,key,value); }\r\n\r\n  template<typename V, typename H>\r\n  inline void set(String key, const ::cpp::Struct<V,H> &value) {__string_hash_set(HX_MAP_THIS,key,value); }\r\n  template<typename V>\r\n  inline void set(String key, const ::cpp::Function<V> &value) {__string_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\r\n  template<typename V>\r\n  inline void set(String key, const ::cpp::Pointer<V> &value) {__string_hash_set(HX_MAP_THIS,key,(Dynamic)value ); }\r\n\r\n  template<typename VALUE>\r\n  inline void set(Dynamic &key, const VALUE &value) { set( (String)key, value ); }\r\n\r\n  inline bool get_bool(String key) { return __string_hash_get_bool(h,key); }\r\n  inline int get_int(String key) { return __string_hash_get_int(h,key); }\r\n  inline Float get_float(String key) { return __string_hash_get_float(h,key); }\r\n  inline String get_string(String key) { return __string_hash_get_string(h,key); }\r\n"]]></e></m>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
 	<typedef path="haxe.ds._Vector.VectorData" params="T" file="D:\Haxe\haxe\std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector"><c path="Array"><c path="haxe.ds._Vector.VectorData.T"/></c></typedef>
 	<abstract path="haxe.ds.Vector" params="T" file="D:\Haxe\haxe\std/haxe/ds/Vector.hx">
 		<this><t path="haxe.ds._Vector.VectorData"><c path="haxe.ds.Vector.T"/></t></this>
@@ -9520,6 +11064,42 @@
 	@see https://haxe.org/manual/std-vector.html</haxe_doc>
 		<impl><class path="haxe.ds._Vector.Vector_Impl_" params="" file="D:\Haxe\haxe\std/haxe/ds/Vector.hx" private="1" module="haxe.ds.Vector" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
+	<class path="haxe.exceptions.PosException" params="" file="D:\Haxe\haxe\std/haxe/exceptions/PosException.hx">
+		<extends path="haxe.Exception"/>
+		<posInfos final="1" public="1">
+			<t path="haxe.PosInfos"/>
+			<haxe_doc>Position where this exception was created.</haxe_doc>
+		</posInfos>
+		<toString public="1" set="method" line="24" override="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns exception message.</haxe_doc>
+		</toString>
+		<new public="1" set="method" line="12"><f a="message:?previous:?pos">
+	<c path="String"/>
+	<c path="haxe.Exception"/>
+	<x path="Null"><t path="haxe.PosInfos"/></x>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>An exception that carry position information of a place where it was created.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<class path="haxe.exceptions.NotImplementedException" params="" file="D:\Haxe\haxe\std/haxe/exceptions/NotImplementedException.hx">
+		<extends path="haxe.exceptions.PosException"/>
+		<new public="1" set="method" line="7">
+			<f a="?message:?previous:?pos" v="&quot;Not implemented&quot;::">
+				<c path="String"/>
+				<c path="haxe.Exception"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ message : "Not implemented" }</e></m></meta>
+		</new>
+		<haxe_doc>An exception that is thrown when requested function or operation does not have an implementation.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
 	<abstract path="haxe.extern.AsVar" params="T" file="D:\Haxe\haxe\std/haxe/extern/AsVar.hx">
 		<from><icast><c path="haxe.extern.AsVar.T"/></icast></from>
 		<this><c path="haxe.extern.AsVar.T"/></this>
@@ -9533,21 +11113,332 @@
 		</meta>
 		<impl><class path="haxe.extern._AsVar.AsVar_Impl_" params="" file="D:\Haxe\haxe\std/haxe/extern/AsVar.hx" private="1" module="haxe.extern.AsVar" final="1"><meta><m n=":keep"/></meta></class></impl>
 	</abstract>
-	<class path="raygen.Main" params="" file="raygen/Main.hx">
-		<main set="method" line="8" static="1">
+	<class path="haxe.io.Bytes" params="" file="D:\Haxe\haxe\std/haxe/io/Bytes.hx">
+		<alloc public="1" set="method" line="549" static="1">
+			<f a="length">
+				<x path="Int"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<haxe_doc>Returns a new `Bytes` instance with the given `length`. The values of the
+		bytes are not initialized and may not be zero.</haxe_doc>
+		</alloc>
+		<ofString public="1" set="method" line="580" static="1">
+			<f a="s:?encoding">
+				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
+				<c path="haxe.io.Bytes"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Returns the `Bytes` representation of the given `String`, using the
+		specified encoding (UTF-8 by default).</haxe_doc>
+		</ofString>
+		<length public="1" set="null"><x path="Int"/></length>
+		<b><t path="haxe.io.BytesData"/></b>
+		<new set="method" line="34"><f a="length:b">
+	<x path="Int"/>
+	<t path="haxe.io.BytesData"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<typedef path="haxe.io.BytesData" params="" file="D:\Haxe\haxe\std/haxe/io/BytesData.hx"><c path="Array"><x path="cpp.UInt8"/></c></typedef>
+	<enum path="haxe.io.Encoding" params="" file="D:\Haxe\haxe\std/haxe/io/Encoding.hx">
+		<UTF8/>
+		<RawNative><haxe_doc>Output the string the way the platform represent it in memory. This is the most efficient but is platform-specific</haxe_doc></RawNative>
+		<haxe_doc>String binary encoding supported by Haxe I/O</haxe_doc>
+		<meta><m n=":flatEnum"/></meta>
+	</enum>
+	<class path="haxe.io.Eof" params="" file="D:\Haxe\haxe\std/haxe/io/Eof.hx">
+		<toString set="method" line="32">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":ifFeature"><e>"haxe.io.Eof.*"</e></m></meta>
+		</toString>
+		<new public="1" set="method" line="29"><f a=""><x path="Void"/></f></new>
+		<haxe_doc>This exception is raised when reading while data is no longer available in the `haxe.io.Input`.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<enum path="haxe.io.Error" params="" file="D:\Haxe\haxe\std/haxe/io/Error.hx">
+		<Blocked><haxe_doc>The IO is set into nonblocking mode and some data cannot be read or written</haxe_doc></Blocked>
+		<Overflow><haxe_doc>An integer value is outside its allowed range</haxe_doc></Overflow>
+		<OutsideBounds><haxe_doc>An operation on Bytes is outside of its valid range</haxe_doc></OutsideBounds>
+		<Custom a="e">
+			<d/>
+			<haxe_doc>Other errors</haxe_doc>
+		</Custom>
+		<haxe_doc>The possible IO errors that can occur</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</enum>
+	<class path="haxe.io.Input" params="" file="D:\Haxe\haxe\std/haxe/io/Input.hx">
+		<readByte public="1" set="method" line="49">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Read and return one byte.</haxe_doc>
+		</readByte>
+		<readBytes public="1" set="method" line="64">
+			<f a="s:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Read `len` bytes and write them into `s` to the position specified by `pos`.
+
+		Returns the actual length of read data that can be smaller than `len`.
+
+		See `readFullBytes` that tries to read the exact amount of specified bytes.</haxe_doc>
+		</readBytes>
+		<close public="1" set="method" line="92">
 			<f a=""><x path="Void"/></f>
-			<meta><m n=":keep"/></meta>
-		</main>
+			<haxe_doc>Close the input source.
+
+		Behaviour while reading after calling this method is unspecified.</haxe_doc>
+		</close>
+		<haxe_doc>An Input is an abstract reader. See other classes in the `haxe.io` package
+	for several possible implementations.
+
+	All functions which read data throw `Eof` when the end of the stream
+	is reached.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<class path="haxe.io.Output" params="" file="D:\Haxe\haxe\std/haxe/io/Output.hx">
+		<writeByte public="1" set="method" line="46">
+			<f a="c">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Write one byte.</haxe_doc>
+		</writeByte>
+		<writeBytes public="1" set="method" line="57">
+			<f a="s:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>Write `len` bytes from `s` starting by position specified by `pos`.
+
+		Returns the actual length of written data that can differ from `len`.
+
+		See `writeFullBytes` that tries to write the exact amount of specified bytes.</haxe_doc>
+		</writeBytes>
+		<close public="1" set="method" line="92">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Close the output.
+
+		Behaviour while writing after calling this method is unspecified.</haxe_doc>
+		</close>
+		<writeFullBytes public="1" set="method" line="120">
+			<f a="s:pos:len">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Write `len` bytes from `s` starting by position specified by `pos`.
+
+		Unlike `writeBytes`, this method tries to write the exact `len` amount of bytes.</haxe_doc>
+		</writeFullBytes>
+		<writeInput public="1" set="method" line="254">
+			<f a="i:?bufsize">
+				<c path="haxe.io.Input"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Read all available data from `i` and write it.
+
+		The `bufsize` optional argument specifies the size of chunks by
+		which data is read and written. Its default value is 4096.</haxe_doc>
+		</writeInput>
+		<writeString public="1" set="method" line="278">
+			<f a="s:?encoding">
+				<c path="String"/>
+				<e path="haxe.io.Encoding"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Write `s` string.</haxe_doc>
+		</writeString>
+		<haxe_doc>An Output is an abstract write. A specific output implementation will only
+	have to override the `writeByte` and maybe the `write`, `flush` and `close`
+	methods. See `File.write` and `String.write` for two ways of creating an
+	Output.</haxe_doc>
+		<meta><m n=":keep"/></meta>
+	</class>
+	<class path="haxe.io.Path" params="" file="D:\Haxe\haxe\std/haxe/io/Path.hx">
+		<directory public="1" set="method" line="147" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the directory of `path`.
+
+		If the directory is `null`, the empty String `""` is returned.
+
+		If `path` is `null`, the result is unspecified.</haxe_doc>
+		</directory>
+		<join public="1" set="method" line="189" static="1">
+			<f a="paths">
+				<c path="Array"><c path="String"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Joins all paths in `paths` together.
+
+		If `paths` is empty, the empty String `""` is returned. Otherwise the
+		paths are joined with a slash between them.
+
+		If `paths` is `null`, the result is unspecified.</haxe_doc>
+		</join>
+		<normalize public="1" set="method" line="210" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Normalize a given `path` (e.g. turn `'/usr/local/../lib'` into `'/usr/lib'`).
+
+		Also replaces backslashes `\` with slashes `/` and afterwards turns
+		multiple slashes into a single one.
+
+		If `path` is `null`, the result is unspecified.</haxe_doc>
+		</normalize>
+		<addTrailingSlash public="1" set="method" line="271" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Adds a trailing slash to `path`, if it does not have one already.
+
+		If the last slash in `path` is a backslash, a backslash is appended to
+		`path`.
+
+		If the last slash in `path` is a slash, or if no slash is found, a slash
+		is appended to `path`. In particular, this applies to the empty String
+		`""`.
+
+		If `path` is `null`, the result is unspecified.</haxe_doc>
+		</addTrailingSlash>
+		<removeTrailingSlashes public="1" set="method" line="299" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Removes trailing slashes from `path`.
+
+		If `path` does not end with a `/` or `\`, `path` is returned unchanged.
+
+		Otherwise the substring of `path` excluding the trailing slashes or
+		backslashes is returned.
+
+		If `path` is `null`, the result is unspecified.</haxe_doc>
+		</removeTrailingSlashes>
+		<dir public="1">
+			<x path="Null"><c path="String"/></x>
+			<haxe_doc>The directory.
+
+		This is the leading part of the path that is not part of the file name
+		and the extension.
+
+		Does not end with a `/` or `\` separator.
+
+		If the path has no directory, the value is `null`.</haxe_doc>
+		</dir>
+		<file public="1">
+			<c path="String"/>
+			<haxe_doc>The file name.
+
+		This is the part of the part between the directory and the extension.
+
+		If there is no file name, e.g. for `".htaccess"` or `"/dir/"`, the value
+		is the empty String `""`.</haxe_doc>
+		</file>
+		<ext public="1">
+			<x path="Null"><c path="String"/></x>
+			<haxe_doc>The file extension.
+
+		It is separated from the file name by a dot. This dot is not part of
+		the extension.
+
+		If the path has no extension, the value is `null`.</haxe_doc>
+		</ext>
+		<backslash public="1">
+			<x path="Bool"/>
+			<haxe_doc>`true` if the last directory separator is a backslash, `false` otherwise.</haxe_doc>
+		</backslash>
+		<toString public="1" set="method" line="114">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a String representation of `this` path.
+
+		If `this.backslash` is `true`, backslash is used as directory separator,
+		otherwise slash is used. This only affects the separator between
+		`this.dir` and `this.file`.
+
+		If `this.directory` or `this.extension` is `null`, their representation
+		is the empty String `""`.</haxe_doc>
+		</toString>
+		<new public="1" set="method" line="76">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a new `Path` instance by parsing `path`.
+
+		Path information can be retrieved by accessing the `dir`, `file` and `ext`
+		properties.</haxe_doc>
+		</new>
+		<haxe_doc>This class provides a convenient way of working with paths. It supports the
+	common path formats:
+
+	- `directory1/directory2/filename.extension`
+	- `directory1\directory2\filename.extension`</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<class path="haxe.iterators.ArrayIterator" params="T" file="D:\Haxe\haxe\std/haxe/iterators/ArrayIterator.hx">
+		<array final="1"><c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c></array>
+		<current expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</current>
+		<hasNext public="1" get="inline" set="null" line="44">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>See `Iterator.hasNext`</haxe_doc>
+		</hasNext>
+		<next public="1" get="inline" set="null" line="52">
+			<f a=""><c path="haxe.iterators.ArrayIterator.T"/></f>
+			<haxe_doc>See `Iterator.next`</haxe_doc>
+		</next>
+		<new public="1" get="inline" set="null" line="35">
+			<f a="array">
+				<c path="Array"><c path="haxe.iterators.ArrayIterator.T"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Create a new `ArrayIterator`.</haxe_doc>
+		</new>
+		<haxe_doc><![CDATA[This iterator is used only when `Array<T>` is passed to `Iterable<T>`]]></haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+		</meta>
+	</class>
+	<class path="hxray.Main" params="" file="hxray/Main.hx">
+		<main set="method" line="8" static="1"><f a=""><x path="Void"/></f></main>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
-	<class path="raygen.RgGame" params="" file="raygen/RgGame.hx">
-		<main set="method" line="12" static="1">
+	<class path="hxray.RgGame" params="" file="hxray/RgGame.hx">
+		<main set="method" line="15" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":dox"><e>hide</e></m></meta>
 		</main>
-		<new public="1" set="method" line="24">
+		<new public="1" set="method" line="27">
 			<f a="sc:width:height:title:targetFPS">
-				<c path="raygen.RgScene"/>
+				<c path="hxray.RgScene"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<c path="String"/>
@@ -9563,16 +11454,33 @@
 		</new>
 		<haxe_doc>* Basic game object.</haxe_doc>
 	</class>
-	<class path="raygen.RgGlobal" params="" file="raygen/RgGlobal.hx">
-		<windowWidth public="1" static="1"><x path="Int"/></windowWidth>
-		<windowHeight public="1" static="1"><x path="Int"/></windowHeight>
-		<targetFPS public="1" static="1"><x path="Int"/></targetFPS>
-		<haxe_doc>* Contains some globals you would commonly use in games.</haxe_doc>
+	<class path="hxray.RgGlobal" params="" file="hxray/RgGlobal.hx">
+		<windowWidth public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":allow"><e>hxray.RgGame</e></m></meta>
+		</windowWidth>
+		<windowHeight public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":allow"><e>hxray.RgGame</e></m></meta>
+		</windowHeight>
+		<targetFPS public="1" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":allow"><e>hxray.RgGame</e></m></meta>
+		</targetFPS>
+		<bgColor public="1" static="1"><t path="Color"/></bgColor>
+		<bugreportline public="1" expr="&quot;[PUT BUG REPORT INSTRUCTIONS HERE BY EDITING RgGlobal.bugreportline]&quot;" line="21" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"[PUT BUG REPORT INSTRUCTIONS HERE BY EDITING RgGlobal.bugreportline]"</e></m></meta>
+			<haxe_doc>* Used incase RayGen sends you to the error screen.
+     * 
+     * Gets placed at the end of the error screen. use for bug reporting instructions.</haxe_doc>
+		</bugreportline>
+		<haxe_doc>* Contains some global variables and functions you would commonly use in games.</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<class path="raygen.RgScene" params="" file="raygen/RgScene.hx">
+	<class path="hxray.RgScene" params="" file="hxray/RgScene.hx">
 		<assetQueue public="1">
-			<c path="Array"><c path="raygen.assets.base.RgAsset"/></c>
+			<c path="Array"><c path="hxray.assets.base.RgAsset"/></c>
 			<haxe_doc>* Current registered assets. only directly modify this if you know what you're doing, use `register` and `unregister` instead.</haxe_doc>
 		</assetQueue>
 		<init public="1" set="method" line="27">
@@ -9595,7 +11503,7 @@
 		</unload>
 		<register final="1" public="1" set="method" line="76">
 			<f a="asset">
-				<c path="raygen.assets.base.RgAsset"/>
+				<c path="hxray.assets.base.RgAsset"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* **CANNOT BE OVERRIDEN!**
@@ -9605,7 +11513,7 @@
 		</register>
 		<unregister final="1" public="1" set="method" line="88">
 			<f a="asset">
-				<c path="raygen.assets.base.RgAsset"/>
+				<c path="hxray.assets.base.RgAsset"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* **CANNOT BE OVERRIDEN!**
@@ -9619,7 +11527,7 @@
 		</new>
 		<haxe_doc>* Basic Scene object, extend this to make a scene.</haxe_doc>
 	</class>
-	<typedef path="raygen.Rect" params="" file="raygen/RgTypes.hx" module="raygen.RgTypes">
+	<typedef path="hxray.Rect" params="" file="hxray/RgTypes.hx" module="hxray.RgTypes">
 		<a>
 			<y><x path="Int"/></y>
 			<x><x path="Int"/></x>
@@ -9628,7 +11536,29 @@
 		</a>
 		<haxe_doc>* Basic Rectangle, contains X, Y, Width, and Height.</haxe_doc>
 	</typedef>
-	<class path="raygen.assets.base.RgAsset" params="" file="raygen/assets/base/RgAsset.hx">
+	<enum path="hxray.Axies" params="" file="hxray/RgTypes.hx" module="hxray.RgTypes">
+		<X/>
+		<Y/>
+		<XY/>
+		<haxe_doc>* Axies used for the `center` method on Sprites</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":flatEnum"/>
+		</meta>
+	</enum>
+	<enum path="hxray.ErrorStep" params="" file="hxray/RgTypes.hx" module="hxray.RgTypes">
+		<DRAW/>
+		<UPDATE/>
+		<SCENESWITCH/>
+		<UNKNOWN/>
+		<TEST/>
+		<haxe_doc>* Different Steps an error can happen in.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":flatEnum"/>
+		</meta>
+	</enum>
+	<class path="hxray.assets.base.RgAsset" params="" file="hxray/assets/base/RgAsset.hx">
 		<update public="1" set="method" line="17">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Called every frame.</haxe_doc>
@@ -9645,10 +11575,36 @@
 		<haxe_doc>* Most basic asset, no logic.</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<class path="raygen.assets.base.RgObject" params="" file="raygen/assets/base/RgObject.hx">
-		<extends path="raygen.assets.base.RgAsset"/>
+	<class path="hxray.assets.RgSound" params="" file="hxray/assets/RgSound.hx">
+		<extends path="hxray.assets.base.RgAsset"/>
+		<_snd><c path="Sound"/></_snd>
+		<isPlaying public="1" set="null" expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+			<haxe_doc>* Whether or not the sound is currently playing</haxe_doc>
+		</isPlaying>
+		<update public="1" set="method" line="28" override="1"><f a=""><x path="Void"/></f></update>
+		<unload public="1" set="method" line="36" override="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Used to unload and free all allocated resources, it is not recommended to override this, Called automatically upon scene switch or when un-registering the sprite.</haxe_doc>
+		</unload>
+		<play public="1" set="method" line="41"><f a=""><x path="Void"/></f></play>
+		<pause public="1" set="method" line="45"><f a=""><x path="Void"/></f></pause>
+		<stop public="1" set="method" line="49"><f a=""><x path="Void"/></f></stop>
+		<new public="1" set="method" line="21">
+			<f a="sound">
+				<c path="Sound"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Constructor used to initialize internal variables. **It is not recommended to override this! use `init` instead!!**
+     * @param sound Sound to load</haxe_doc>
+		</new>
+		<haxe_doc>* A 2D texture that can be displayed on screen.</haxe_doc>
+	</class>
+	<class path="hxray.assets.base.RgObject" params="" file="hxray/assets/base/RgObject.hx">
+		<extends path="hxray.assets.base.RgAsset"/>
 		<pos public="1">
-			<t path="raygen.Rect"/>
+			<t path="hxray.Rect"/>
 			<haxe_doc>* Position and scaling of the object.</haxe_doc>
 		</pos>
 		<new public="1" set="method" line="15"><f a="x:y:w:h">
@@ -9660,35 +11616,45 @@
 </f></new>
 		<haxe_doc>* Basic object with X, Y, W, and H values.</haxe_doc>
 	</class>
-	<class path="raygen.assets.RgSprite" params="" file="raygen/assets/RgSprite.hx">
-		<extends path="raygen.assets.base.RgObject"/>
+	<class path="hxray.assets.RgSprite" params="" file="hxray/assets/RgSprite.hx">
+		<extends path="hxray.assets.base.RgObject"/>
 		<_tex><t path="Texture"/></_tex>
 		<color public="1" expr="Rl.Colors.WHITE">
 			<t path="Color"/>
 			<meta><m n=":value"><e>Rl.Colors.WHITE</e></m></meta>
 			<haxe_doc>* Tint of the sprite.</haxe_doc>
 		</color>
-		<update public="1" set="method" line="31" override="1">
+		<angle public="1" expr="0">
+			<x path="Float"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+			<haxe_doc>* The rotation of the sprite</haxe_doc>
+		</angle>
+		<scale public="1" expr="1">
+			<x path="Float"/>
+			<meta><m n=":value"><e>1</e></m></meta>
+			<haxe_doc>* The scale of the sprite</haxe_doc>
+		</scale>
+		<update public="1" set="method" line="45" override="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Used to update internal variables upon every frame. called automatically.</haxe_doc>
 		</update>
-		<draw public="1" set="method" line="39" override="1">
+		<draw public="1" set="method" line="53" override="1">
 			<f a=""><x path="Void"/></f>
-			<haxe_doc>* Used to draw the sprite on every frame, only override this if you know what you're doing!</haxe_doc>
+			<haxe_doc>* Used to draw the sprite on every frame</haxe_doc>
 		</draw>
-		<unload public="1" set="method" line="47" override="1">
+		<unload public="1" set="method" line="64" override="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Used to unload and free all allocated resources, it is not recommended to override this, Called automatically upon scene switch or when un-registering the sprite.</haxe_doc>
 		</unload>
-		<center public="1" set="method" line="56">
+		<center public="1" set="method" line="73">
 			<f a="?axies">
-				<e path="raygen.assets.Axies"/>
+				<e path="hxray.Axies"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* Automatically centers the sprite on the scree
      * @param axies the axies to center the sprite on. Takes either `X`, `Y`, or `XY`. If left empty, `XY` is used.</haxe_doc>
 		</center>
-		<new public="1" set="method" line="21">
+		<new public="1" set="method" line="35">
 			<f a="x:y:sprite">
 				<x path="Int"/>
 				<x path="Int"/>
@@ -9702,30 +11668,915 @@
 		</new>
 		<haxe_doc>* A 2D texture that can be displayed on screen.</haxe_doc>
 	</class>
-	<enum path="raygen.assets.Axies" params="" file="raygen/assets/RgSprite.hx" module="raygen.assets.RgSprite">
-		<X/>
-		<Y/>
-		<XY/>
-		<haxe_doc>* Axies used for the `center` method on Sprites</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":flatEnum"/>
-		</meta>
-	</enum>
-	<class path="raygen.management.RgSceneMnger" params="" file="raygen/management/RgSceneMnger.hx">
+	<class path="hxray.assets.RgText" params="" file="hxray/assets/RgText.hx">
+		<extends path="hxray.assets.base.RgObject"/>
+		<text public="1" expr="&quot;&quot;">
+			<c path="String"/>
+			<meta><m n=":value"><e>""</e></m></meta>
+		</text>
+		<fontSize public="1" expr="32">
+			<x path="Int"/>
+			<meta><m n=":value"><e>32</e></m></meta>
+		</fontSize>
+		<fieldWidth public="1" expr="0">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</fieldWidth>
+		<color public="1" expr="Rl.Colors.WHITE">
+			<t path="Color"/>
+			<meta><m n=":value"><e>Rl.Colors.WHITE</e></m></meta>
+			<haxe_doc>* Color of the text.</haxe_doc>
+		</color>
+		<update public="1" set="method" line="40" override="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Used to update internal variables upon every frame. called automatically.</haxe_doc>
+		</update>
+		<draw public="1" set="method" line="48" override="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Used to draw the text on every frame, only override this if you know what you're doing!</haxe_doc>
+		</draw>
+		<unload public="1" set="method" line="56" override="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Used to unload and free all allocated resources, it is not recommended to override this, Called automatically upon scene switch or when un-registering the sprite.</haxe_doc>
+		</unload>
+		<center public="1" set="method" line="65">
+			<f a="?axies">
+				<e path="hxray.Axies"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Automatically centers the text on the screen
+     * @param axies the axies to center the sprite on. Takes either `X`, `Y`, or `XY`. If left empty, `XY` is used.</haxe_doc>
+		</center>
+		<new public="1" set="method" line="21">
+			<f a="x:y:text:?fieldWidth:?fontSize" v=":::0:32">
+				<x path="Int"/>
+				<x path="Int"/>
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ fontSize : 32, fieldWidth : 0 }</e></m></meta>
+		</new>
+		<haxe_doc>* A 2D texture that can be displayed on screen.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="hxray.internal.RgErrorScene" params="" file="hxray/internal/RgErrorScene.hx">
+		<extends path="hxray.RgScene"/>
+		<errorCode public="1"><c path="String"/></errorCode>
+		<errorStep public="1"><c path="String"/></errorStep>
+		<inScene public="1"><c path="hxray.RgScene"/></inScene>
+		<init public="1" set="method" line="27" override="1"><f a=""><x path="Void"/></f></init>
+		<update public="1" set="method" line="38" override="1"><f a=""><x path="Void"/></f></update>
+		<new public="1" set="method" line="18"><f a="errorCode:errorStep:inScene">
+	<c path="String"/>
+	<c path="String"/>
+	<c path="hxray.RgScene"/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>* A screen automatically called in the event of an error.</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="hxray.internal.macros.AssetBuilder" params="" file="hxray/internal/macros/AssetBuilder.hx"><meta><m n=":dox"><e>hide</e></m></meta></class>
+	<class path="hxray.management.RgGameMnger" params="" file="hxray/management/RgGameMnger.hx">
 		<currentScene public="1" static="1">
-			<c path="raygen.RgScene"/>
+			<c path="hxray.RgScene"/>
 			<haxe_doc>* The current loaded scene. It is recommended to not change this manually unless you know what you're doing.</haxe_doc>
 		</currentScene>
-		<switchScene public="1" set="method" line="18" static="1">
+		<switchScene public="1" set="method" line="21" static="1">
 			<f a="scene">
-				<c path="raygen.RgScene"/>
+				<c path="hxray.RgScene"/>
 				<x path="Void"/>
 			</f>
 			<haxe_doc>* Used to switch scenes. Automatically calls `unload` on the last scene, and `init` on the next.
      * @param scene the scene to switch to.</haxe_doc>
 		</switchScene>
+		<callError public="1" set="dynamic" line="46" static="1">
+			<f a="msg:step:scene">
+				<c path="String"/>
+				<e path="hxray.ErrorStep"/>
+				<c path="hxray.RgScene"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Decides what to do in the event of an error.
+     * 
+     * **Can be rebound for your own logic.**
+     * @param msg The error message
+     * @param step The error step
+     * @param scene The scene the error happened in. In the event of a SceneSwitch error, the scene the error happened in is used.</haxe_doc>
+		</callError>
 		<haxe_doc>* Used to switch scenes</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="massive.haxe.Exception" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/haxe/Exception.hx">
+		<type public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>* The exception type. 
+	 * 
+	 * Should be the fully qualified name of the Exception class. e.g. 'massive.io.IOException'</haxe_doc>
+		</type>
+		<message public="1" set="null">
+			<c path="String"/>
+			<haxe_doc>* A description of the exception</haxe_doc>
+		</message>
+		<info public="1" set="null">
+			<t path="haxe.PosInfos"/>
+			<haxe_doc>* The pos infos from where the exception was created.</haxe_doc>
+		</info>
+		<toString public="1" set="method" line="79">
+			<f a=""><c path="String"/></f>
+			<haxe_doc><![CDATA[* Returns a string representation of this exception.
+	 * 
+	 * Format: <type>: <message> at <className>#<methodName> (<lineNumber>)]]></haxe_doc>
+		</toString>
+		<new public="1" set="method" line="67">
+			<f a="message:?info">
+				<c path="String"/>
+				<t path="haxe.PosInfos"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* @param	message			a description of the exception</haxe_doc>
+		</new>
+		<haxe_doc>* Instances of the class Exception and its subclasses, when thrown, provide information about
+ * the type and location of erroneous behavior.
+ * 
+ * An application should lookout for and handle raised exceptions through try/catch blocks located
+ * in an appropriate place.
+ * 
+ * @author Mike Stead</haxe_doc>
+	</class>
+	<class path="massive.haxe.log.ILogClient" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/haxe/log/ILogClient.hx" interface="1"><print public="1" set="method"><f a="message:level">
+	<c path="String"/>
+	<e path="massive.haxe.log.LogLevel"/>
+	<x path="Void"/>
+</f></print></class>
+	<class path="massive.haxe.log.LogClient" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/haxe/log/LogClient.hx">
+		<implements path="massive.haxe.log.ILogClient"/>
+		<print public="1" set="method" line="42"><f a="message:level">
+	<c path="String"/>
+	<e path="massive.haxe.log.LogLevel"/>
+	<x path="Void"/>
+</f></print>
+		<new public="1" set="method" line="37"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<enum path="massive.haxe.log.LogLevel" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/haxe/log/Log.hx" module="massive.haxe.log.Log">
+		<all/>
+		<debug/>
+		<info/>
+		<warn/>
+		<error/>
+		<fatal/>
+		<console/>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":flatEnum"/>
+		</meta>
+	</enum>
+	<class path="massive.haxe.log.Log" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/haxe/log/Log.hx">
+		<logLevel public="1" expr="LogLevel.console" line="34" static="1">
+			<e path="massive.haxe.log.LogLevel"/>
+			<meta><m n=":value"><e>LogLevel.console</e></m></meta>
+		</logLevel>
+		<logClient public="1" expr="new LogClient()" line="36" static="1">
+			<c path="massive.haxe.log.ILogClient"/>
+			<meta><m n=":value"><e>new LogClient()</e></m></meta>
+		</logClient>
+		<debug public="1" set="method" line="42" static="1"><f a="message">
+	<d/>
+	<x path="Void"/>
+</f></debug>
+		<info public="1" set="method" line="47" static="1"><f a="message">
+	<d/>
+	<x path="Void"/>
+</f></info>
+		<warn public="1" set="method" line="52" static="1"><f a="message">
+	<d/>
+	<x path="Void"/>
+</f></warn>
+		<error public="1" set="method" line="57" static="1"><f a="message">
+	<d/>
+	<x path="Void"/>
+</f></error>
+		<fatal public="1" set="method" line="62" static="1"><f a="message">
+	<d/>
+	<x path="Void"/>
+</f></fatal>
+		<console public="1" set="method" line="67" static="1"><f a="message">
+	<d/>
+	<x path="Void"/>
+</f></console>
+		<log public="1" set="method" line="72" static="1"><f a="message:?level">
+	<d/>
+	<e path="massive.haxe.log.LogLevel"/>
+	<x path="Void"/>
+</f></log>
+		<convertLogLevelToInt public="1" set="method" line="88" static="1"><f a="type">
+	<e path="massive.haxe.log.LogLevel"/>
+	<x path="Int"/>
+</f></convertLogLevelToInt>
+		<convertLogLevelToString public="1" set="method" line="102" static="1"><f a="type">
+	<e path="massive.haxe.log.LogLevel"/>
+	<c path="String"/>
+</f></convertLogLevelToString>
+		<setLogLevelFromString public="1" set="method" line="116" static="1"><f a="type">
+	<c path="String"/>
+	<x path="Void"/>
+</f></setLogLevelFromString>
+		<getLogLevelFromString set="method" line="125" static="1"><f a="type">
+	<c path="String"/>
+	<e path="massive.haxe.log.LogLevel"/>
+</f></getLogLevelFromString>
+		<new public="1" set="method" line="38"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="massive.haxe.util.ReflectUtil" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/haxe/util/ReflectUtil.hx">
+		<here public="1" set="method" line="44" static="1">
+			<f a="?info">
+				<t path="haxe.PosInfos"/>
+				<t path="haxe.PosInfos"/>
+			</f>
+			<haxe_doc>* Return information about the location this method is called.</haxe_doc>
+		</here>
+		<haxe_doc>* Utility class to help with reflection.
+ * 
+ * @author Mike Stead</haxe_doc>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="massive.sys.io.File" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/sys/io/File.hx">
+		<seperator public="1" get="accessor" set="null" static="1"><c path="String"/></seperator>
+		<current public="1" get="accessor" set="null" static="1"><c path="massive.sys.io.File"/></current>
+		<tempCount expr="0" line="49" static="1">
+			<x path="Int"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</tempCount>
+		<temp expr="new StringMap()" line="50" static="1">
+			<c path="haxe.ds.StringMap"><c path="massive.sys.io.File"/></c>
+			<meta><m n=":value"><e>new StringMap()</e></m></meta>
+		</temp>
+		<get_current set="method" line="53" static="1"><f a=""><c path="massive.sys.io.File"/></f></get_current>
+		<get_seperator set="method" line="59" static="1"><f a=""><c path="String"/></f></get_seperator>
+		<create public="1" set="method" line="71" static="1">
+			<f a="path:?file:?createImmediately:?posInfos" v=":null:false:">
+				<c path="String"/>
+				<c path="massive.sys.io.File"/>
+				<x path="Bool"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
+				<c path="massive.sys.io.File"/>
+			</f>
+			<meta><m n=":value"><e>{ createImmediately : false, file : null }</e></m></meta>
+		</create>
+		<createTempFile public="1" set="method" line="112" static="1">
+			<f a="?content:?extension" v="&quot;&quot;:&quot;.tmp&quot;">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="massive.sys.io.File"/>
+			</f>
+			<meta><m n=":value"><e>{ extension : ".tmp", content : "" }</e></m></meta>
+			<haxe_doc>*  creates a temporary file in the current directory.</haxe_doc>
+		</createTempFile>
+		<createTempDirectory public="1" set="method" line="125" static="1">
+			<f a=""><c path="massive.sys.io.File"/></f>
+			<haxe_doc>*  creates a temporary directory in the current directory.</haxe_doc>
+		</createTempDirectory>
+		<deleteTempFiles public="1" set="method" line="143" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>*  deletes all temporary files and directories created during this session.</haxe_doc>
+		</deleteTempFiles>
+		<exists public="1" get="accessor" set="null">
+			<x path="Bool"/>
+			<haxe_doc>*  @return true if file exists.</haxe_doc>
+		</exists>
+		<isDirectory public="1" get="accessor" set="null">
+			<x path="Bool"/>
+			<haxe_doc>*  @return true if it is a valid directory path. This is different from sys.FileSystem.isDirectory() that throws error if the path doesn't exist.</haxe_doc>
+		</isDirectory>
+		<isFile public="1" get="accessor" set="null"><x path="Bool"/></isFile>
+		<isUnknown public="1" get="accessor" set="null"><x path="Bool"/></isUnknown>
+		<isNativeDirectory public="1" get="accessor" set="null"><x path="Bool"/></isNativeDirectory>
+		<nativePath public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>*  @return full native os path</haxe_doc>
+		</nativePath>
+		<fileName public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>*  @return filename.ext if a file, returns null if a directory</haxe_doc>
+		</fileName>
+		<name public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>*  @return name of file without extension (if a file) and directory name if a directory</haxe_doc>
+		</name>
+		<extension public="1" get="accessor" set="null">
+			<c path="String"/>
+			<haxe_doc>*  @return the file extension or null if a directory</haxe_doc>
+		</extension>
+		<parent public="1" get="accessor" set="null">
+			<c path="massive.sys.io.File"/>
+			<haxe_doc>*  @return the directory of file, or the parent directory of a directory.</haxe_doc>
+		</parent>
+		<raw>
+			<c path="String"/>
+			<haxe_doc>*  @return the original string passed through in the constructor</haxe_doc>
+		</raw>
+		<path public="1" set="null">
+			<c path="haxe.io.Path"/>
+			<haxe_doc>*  @return a neko path instance for the file</haxe_doc>
+		</path>
+		<isEmpty public="1" get="accessor" set="null">
+			<x path="Bool"/>
+			<haxe_doc>*  @return true if directory  is empty (or if it is a file);</haxe_doc>
+		</isEmpty>
+		<type><e path="massive.sys.io.FileType"/></type>
+		<setInternalPath set="method" line="240">
+			<f a="filePath:?fileType" v=":null">
+				<c path="String"/>
+				<e path="massive.sys.io.FileType"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ fileType : null }</e></m></meta>
+		</setInternalPath>
+		<toString public="1" set="method" line="300"><f a=""><c path="String"/></f></toString>
+		<resolvePath public="1" set="method" line="310">
+			<f a="value:?createImmediately:?fileType:?posInfos" v=":false:null:">
+				<c path="String"/>
+				<x path="Bool"/>
+				<e path="massive.sys.io.FileType"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
+				<c path="massive.sys.io.File"/>
+			</f>
+			<meta><m n=":value"><e>{ fileType : null, createImmediately : false }</e></m></meta>
+			<haxe_doc>*  @param a relative path to resolve (e.g. "sub/example.txt")
+	*  @return a new File instance</haxe_doc>
+		</resolvePath>
+		<resolveDirectory public="1" set="method" line="380">
+			<f a="value:?createImmediately" v=":false">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="massive.sys.io.File"/>
+			</f>
+			<meta><m n=":value"><e>{ createImmediately : false }</e></m></meta>
+		</resolveDirectory>
+		<resolveFile public="1" set="method" line="399">
+			<f a="value:?createImmediately" v=":false">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="massive.sys.io.File"/>
+			</f>
+			<meta><m n=":value"><e>{ createImmediately : false }</e></m></meta>
+		</resolveFile>
+		<getRelativePath public="1" set="method" line="412">
+			<f a="ref:?useDotDot" v=":true">
+				<c path="massive.sys.io.File"/>
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta><m n=":value"><e>{ useDotDot : true }</e></m></meta>
+			<haxe_doc>*  @param ref:File - a reference file to determine the path to
+	*  @param useDotDot:Bool - uses ../../ syntax if true. Otherwise returns null if ref file path is not inside same directory as file
+	*  @return a relative path string</haxe_doc>
+		</getRelativePath>
+		<clone public="1" set="method" line="510">
+			<f a=""><c path="massive.sys.io.File"/></f>
+			<haxe_doc>*  @returns a copy of the current file instance</haxe_doc>
+		</clone>
+		<createDirectory public="1" set="method" line="521">
+			<f a="?force:?posInfos" v="false:">
+				<x path="Bool"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ force : false }</e></m></meta>
+			<haxe_doc>* Creates the current directory in the filesystem
+	*  
+	*  @returns true if directory is created
+	* @returns false if directory already exists or if file isn't a directory</haxe_doc>
+		</createDirectory>
+		<deleteDirectory public="1" set="method" line="564">
+			<f a="?deleteContents:?posInfos" v="true:">
+				<x path="Bool"/>
+				<x path="Null"><t path="haxe.PosInfos"/></x>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ deleteContents : true }</e></m></meta>
+			<haxe_doc>*  deletes the current directory 
+	*  @param deleteContents: set to true to allow deleting of directory that contains files/directories
+	*  @returns true if directory was removed
+	*  @returns false if directory couldn't be removed because it contains files</haxe_doc>
+		</deleteDirectory>
+		<deleteDirectoryContents public="1" set="method" line="601">
+			<f a="?filter:?exclude" v="null:false">
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, filter : null }</e></m></meta>
+			<haxe_doc>*  deletes the contents of the current directory</haxe_doc>
+		</deleteDirectoryContents>
+		<createFile public="1" set="method" line="624">
+			<f a="?value" v="&quot;&quot;">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ value : "" }</e></m></meta>
+		</createFile>
+		<deleteFile public="1" set="method" line="648">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* deletes the current file</haxe_doc>
+		</deleteFile>
+		<copyTo public="1" set="method" line="672">
+			<f a="dst:?overwrite:?filter:?exclude" v=":true:null:false">
+				<c path="massive.sys.io.File"/>
+				<x path="Bool"/>
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, filter : null, overwrite : true }</e></m></meta>
+			<haxe_doc>*  copies the current file to a destination
+	*  @param dst:File - a destination directory (or file if copying a single file);
+	*  @param overwrite:Bool - flag to decide whether or not to copy over existing files
+	*  @param filter:EReg - optional filter for directory contents (if no filter is set it wil exclude .svn and .DS_STORE by default);
+	*  @param exclude:Bool - falg whether or not filter is used to include or exclude files</haxe_doc>
+		</copyTo>
+		<copyInto public="1" set="method" line="747">
+			<f a="dst:?overwrite:?filter:?exclude" v=":true:null:false">
+				<c path="massive.sys.io.File"/>
+				<x path="Bool"/>
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, filter : null, overwrite : true }</e></m></meta>
+			<haxe_doc>*  copies the current file/directory into another directory (using the same name as the current directory)
+	*  @param dst:File - a destination parent directory
+	*  @see File#copyTo</haxe_doc>
+		</copyInto>
+		<moveTo public="1" set="method" line="769">
+			<f a="dst:?overwrite:?filter:?exclude" v=":true:null:false">
+				<c path="massive.sys.io.File"/>
+				<x path="Bool"/>
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, filter : null, overwrite : true }</e></m></meta>
+			<haxe_doc>*  copies the current file to a destination and then deletes the current version
+	*  @see File#copyTo</haxe_doc>
+		</moveTo>
+		<moveInto public="1" set="method" line="789">
+			<f a="dst:?overwrite:?filter:?exclude" v=":true:null:false">
+				<c path="massive.sys.io.File"/>
+				<x path="Bool"/>
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, filter : null, overwrite : true }</e></m></meta>
+			<haxe_doc>*  moves the current file/directory into another directory (using the same name as the current directory)
+	*  @param dst:File - a destination parent directory
+	*  @see File#moveTo</haxe_doc>
+		</moveInto>
+		<writeString public="1" set="method" line="812">
+			<f a="value:?binary" v=":true">
+				<d/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ binary : true }</e></m></meta>
+			<haxe_doc>*  Writes a string to the current file. Creates the file if it doesn't exist yet.
+	*  @param value:String - contents to write;
+	*  @param binary:Bool - flag to decide whether to write as binary or not</haxe_doc>
+		</writeString>
+		<readString public="1" set="method" line="836">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>*  Reads the contents of a file as a string</haxe_doc>
+		</readString>
+		<getDirectoryListing public="1" set="method" line="866">
+			<f a="?filter:?exclude" v="null:false">
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<c path="Array"><c path="massive.sys.io.File"/></c>
+			</f>
+			<meta><m n=":value"><e>{ exclude : false, filter : null }</e></m></meta>
+			<haxe_doc>*  returns an list of files and subdirectories in the current directory.</haxe_doc>
+		</getDirectoryListing>
+		<getRecursiveDirectoryListing public="1" set="method" line="905">
+			<f a="?filter:?exclude:?orderDirectoriesBeforeFiles:?rootDir" v="null:false:false:null">
+				<c path="EReg"/>
+				<x path="Bool"/>
+				<x path="Bool"/>
+				<c path="massive.sys.io.File"/>
+				<c path="Array"><c path="massive.sys.io.File"/></c>
+			</f>
+			<meta><m n=":value"><e>{ rootDir : null, orderDirectoriesBeforeFiles : false, exclude : false, filter : null }</e></m></meta>
+			<haxe_doc>*  returns an list of files and subdirectories. This method is recursive.
+	*  @param filter:EReg - optional filter for directory contents (if no filter is set it wil exclude .svn and .DS_STORE by default);
+	*  @param exclude:Bool - flag whether or not filter is used to include or exclude files
+	*  @param orderDirectoriesBeforeFiles:Bool - flag whether or not to list sub directories before or after their children.
+	*         This is useful to get directories after when deleting and before when copying
+	*  @param rootDir - used to run regex filter based on relative paths from a specified directory</haxe_doc>
+		</getRecursiveDirectoryListing>
+		<get_exists set="method" line="943"><f a=""><x path="Bool"/></f></get_exists>
+		<get_isDirectory set="method" line="953"><f a=""><x path="Bool"/></f></get_isDirectory>
+		<get_isNativeDirectory set="method" line="960"><f a=""><x path="Bool"/></f></get_isNativeDirectory>
+		<get_isFile set="method" line="970"><f a=""><x path="Bool"/></f></get_isFile>
+		<get_isUnknown set="method" line="975"><f a=""><x path="Bool"/></f></get_isUnknown>
+		<get_name set="method" line="981"><f a=""><c path="String"/></f></get_name>
+		<get_fileName set="method" line="994"><f a=""><c path="String"/></f></get_fileName>
+		<get_extension set="method" line="1006"><f a=""><c path="String"/></f></get_extension>
+		<get_nativePath set="method" line="1016"><f a=""><c path="String"/></f></get_nativePath>
+		<get_parent set="method" line="1023"><f a=""><c path="massive.sys.io.File"/></f></get_parent>
+		<get_isEmpty set="method" line="1046">
+			<f a=""><x path="Bool"/></f>
+			<haxe_doc>*  returns an list of files and subdirectories in the current directory.</haxe_doc>
+		</get_isEmpty>
+		<toDebugString public="1" set="method" line="1061"><f a=""><c path="String"/></f></toDebugString>
+		<new set="method" line="229">
+			<f a="filePath:?fileType:?createImmediately" v=":null:false">
+				<c path="String"/>
+				<e path="massive.sys.io.FileType"/>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ createImmediately : false, fileType : null }</e></m></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<enum path="massive.sys.io.FileType" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/sys/io/File.hx" module="massive.sys.io.File">
+		<DIRECTORY/>
+		<FILE/>
+		<UNKNOWN/>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":flatEnum"/>
+		</meta>
+	</enum>
+	<class path="massive.sys.io.FileException" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/sys/io/FileException.hx">
+		<extends path="massive.haxe.Exception"/>
+		<file public="1"><c path="massive.sys.io.File"/></file>
+		<toString public="1" set="method" line="44" override="1"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="38">
+			<f a="message:?file:?posInfos" v=":null:">
+				<c path="String"/>
+				<c path="massive.sys.io.File"/>
+				<t path="haxe.PosInfos"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ file : null }</e></m></meta>
+		</new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="massive.sys.io.FileSys" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/sys/io/FileSys.hx">
+		<_isWindows static="1"><x path="Null"><x path="Bool"/></x></_isWindows>
+		<isWindows public="1" get="accessor" set="null" static="1"><x path="Bool"/></isWindows>
+		<_isMac static="1"><x path="Null"><x path="Bool"/></x></_isMac>
+		<isMac public="1" get="accessor" set="null" static="1"><x path="Bool"/></isMac>
+		<_isLinux static="1"><x path="Null"><x path="Bool"/></x></_isLinux>
+		<isLinux public="1" get="accessor" set="null" static="1"><x path="Bool"/></isLinux>
+		<get_isWindows set="method" line="51" static="1"><f a=""><x path="Bool"/></f></get_isWindows>
+		<get_isMac set="method" line="60" static="1"><f a=""><x path="Bool"/></f></get_isMac>
+		<get_isLinux set="method" line="69" static="1"><f a=""><x path="Bool"/></f></get_isLinux>
+		<safePath set="method" line="81" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>*  Fix to remove trailing slash from directories in windows (throws errors on FileSystem methods)
+	*</haxe_doc>
+		</safePath>
+		<getCwd public="1" set="method" line="99" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>*  fix for getCwd returning the wrong slash on a directory in windows</haxe_doc>
+		</getCwd>
+		<setCwd public="1" set="method" line="116" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Void"/>
+</f></setCwd>
+		<exists public="1" set="method" line="129" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></exists>
+		<isDirectory public="1" set="method" line="142" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></isDirectory>
+		<readDirectory public="1" set="method" line="157" static="1"><f a="path">
+	<c path="String"/>
+	<c path="Array"><c path="String"/></c>
+</f></readDirectory>
+		<createDirectory public="1" set="method" line="172" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Void"/>
+</f></createDirectory>
+		<deleteDirectory public="1" set="method" line="187" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Void"/>
+</f></deleteDirectory>
+		<deleteFile public="1" set="method" line="201" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Void"/>
+</f></deleteFile>
+		<new public="1" set="method" line="230"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="massive.sys.util.PathUtil" params="" file="D:\Haxe\haxe\lib\mlib/2,0,3/massive/sys/util/PathUtil.hx">
+		<DIRECTORY_NAME public="1" expr="~/\.?[a-zA-Z0-9\-_ ]*$/" line="34" static="1">
+			<c path="EReg"/>
+			<meta><m n=":value"><e>~/\.?[a-zA-Z0-9\-_ ]*$/</e></m></meta>
+		</DIRECTORY_NAME>
+		<HAXE_CLASS_NAME public="1" expr="~/[A-Z]([a-zA-Z0-9]+)\.hx/" line="35" static="1">
+			<c path="EReg"/>
+			<meta><m n=":value"><e>~/[A-Z]([a-zA-Z0-9]+)\.hx/</e></m></meta>
+		</HAXE_CLASS_NAME>
+		<isAbsolutePath public="1" set="method" line="43" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></isAbsolutePath>
+		<cleanUpPath public="1" set="method" line="61" static="1"><f a="path">
+	<c path="String"/>
+	<c path="String"/>
+</f></cleanUpPath>
+		<lastCharIsSlash public="1" set="method" line="85" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></lastCharIsSlash>
+		<isRelativePath public="1" set="method" line="92" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></isRelativePath>
+		<isValidDirectoryName public="1" set="method" line="97" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></isValidDirectoryName>
+		<isValidHaxeClassName public="1" set="method" line="102" static="1"><f a="path">
+	<c path="String"/>
+	<x path="Bool"/>
+</f></isValidHaxeClassName>
+		<new public="1" set="method" line="38"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<typedef path="sys.FileStat" params="" file="D:\Haxe\haxe\std/sys/FileStat.hx">
+		<a>
+			<uid>
+				<x path="Int"/>
+				<haxe_doc>The user id for the file owner.</haxe_doc>
+			</uid>
+			<size>
+				<x path="Int"/>
+				<haxe_doc>The size of the file, in bytes.</haxe_doc>
+			</size>
+			<rdev>
+				<x path="Int"/>
+				<haxe_doc>The device type on which stat resides (special files only).</haxe_doc>
+			</rdev>
+			<nlink>
+				<x path="Int"/>
+				<haxe_doc>The number of hard links to stat.</haxe_doc>
+			</nlink>
+			<mtime>
+				<c path="Date"/>
+				<haxe_doc>The last modification time for the file.</haxe_doc>
+			</mtime>
+			<mode>
+				<x path="Int"/>
+				<haxe_doc>The permission bits of stat. The meaning of the bits is platform dependent.</haxe_doc>
+			</mode>
+			<ino>
+				<x path="Int"/>
+				<haxe_doc>The inode number for stat.</haxe_doc>
+			</ino>
+			<gid>
+				<x path="Int"/>
+				<haxe_doc>The user group id for the file owner.</haxe_doc>
+			</gid>
+			<dev>
+				<x path="Int"/>
+				<haxe_doc>The device on which stat resides.</haxe_doc>
+			</dev>
+			<ctime>
+				<c path="Date"/>
+				<haxe_doc>The creation time for the file (not all file systems support this).</haxe_doc>
+			</ctime>
+			<atime>
+				<c path="Date"/>
+				<haxe_doc>The last access time for the file (when enabled by the file system).</haxe_doc>
+			</atime>
+		</a>
+		<haxe_doc>File information, as given by `sys.FileSystem.stat`.</haxe_doc>
+	</typedef>
+	<class path="sys.FileSystem" params="" file="D:\Haxe\haxe\std/cpp/_std/sys/FileSystem.hx">
+		<exists public="1" set="method" line="30" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns `true` if the file or directory specified by `path` exists.</haxe_doc>
+		</exists>
+		<isDirectory public="1" set="method" line="74" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Returns `true` if the file or directory specified by `path` is a directory.
+
+		If `path` is not a valid file system entry or if its destination is not
+		accessible, an exception is thrown.</haxe_doc>
+		</isDirectory>
+		<createDirectory public="1" set="method" line="78" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Creates a directory specified by `path`.
+
+		This method is recursive: The parent directories don't have to exist.
+
+		If the directory cannot be created, an exception is thrown.</haxe_doc>
+		</createDirectory>
+		<deleteFile public="1" set="method" line="92" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Deletes the file specified by `path`.
+
+		If `path` does not denote a valid file, or if that file cannot be
+		deleted, an exception is thrown.</haxe_doc>
+		</deleteFile>
+		<deleteDirectory public="1" set="method" line="96" static="1">
+			<f a="path">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Deletes the directory specified by `path`. Only empty directories can
+		be deleted.
+
+		If `path` does not denote a valid directory, or if that directory cannot
+		be deleted, an exception is thrown.</haxe_doc>
+		</deleteDirectory>
+		<readDirectory public="1" set="method" line="100" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Returns the names of all files and directories in the directory specified
+		by `path`. `"."` and `".."` are not included in the output.
+
+		If `path` does not denote a valid directory, an exception is thrown.</haxe_doc>
+		</readDirectory>
+		<haxe_doc>This class provides information about files and directories.
+
+	If `null` is passed as a file path to any function in this class, the
+	result is unspecified, and may differ from target to target.
+
+	See `sys.io.File` for the complementary file API.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":buildXml"><e><![CDATA["<include name=\"${HXCPP}/src/hx/libs/std/Build.xml\"/>"]]></e></m>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.io.File" params="" file="D:\Haxe\haxe\std/cpp/_std/sys/io/File.hx">
+		<getContent public="1" set="method" line="29" static="1">
+			<f a="path">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Retrieves the content of the file specified by `path` as a String.
+
+		If the file does not exist or can not be read, an exception is thrown.
+
+		`sys.FileSystem.exists` can be used to check for existence.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</getContent>
+		<read public="1" set="method" line="50" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileInput"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":value"><e>{ binary : true }</e></m>
+			</meta>
+			<haxe_doc>Returns an `FileInput` handle to the file specified by `path`.
+
+		If `binary` is true, the file is opened in binary mode. Otherwise it is
+		opened in non-binary mode.
+
+		If the file does not exist or can not be read, an exception is thrown.
+
+		Operations on the returned `FileInput` handle read on the opened file.
+
+		File handles should be closed via `FileInput.close` once the operation
+		is complete.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</read>
+		<write public="1" set="method" line="54" static="1">
+			<f a="path:?binary" v=":true">
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="sys.io.FileOutput"/>
+			</f>
+			<meta>
+				<m n=":has_untyped"/>
+				<m n=":value"><e>{ binary : true }</e></m>
+			</meta>
+			<haxe_doc>Returns an `FileOutput` handle to the file specified by `path`.
+
+		If `binary` is true, the file is opened in binary mode. Otherwise it is
+		opened in non-binary mode.
+
+		If the file cannot be written to, an exception is thrown.
+
+		Operations on the returned `FileOutput` handle write to the opened file.
+		If the file existed, its previous content is overwritten.
+
+		File handles should be closed via `FileOutput.close` once the operation
+		is complete.
+
+		If `path` is null, the result is unspecified.</haxe_doc>
+		</write>
+		<copy public="1" set="method" line="69" static="1">
+			<f a="srcPath:dstPath">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies the contents of the file specified by `srcPath` to the file
+		specified by `dstPath`.
+
+		If the `srcPath` does not exist or cannot be read, or if the `dstPath`
+		file cannot be written to, an exception is thrown.
+
+		If the file at `dstPath` exists, its contents are overwritten.
+
+		If `srcPath` or `dstPath` are null, the result is unspecified.</haxe_doc>
+		</copy>
+		<haxe_doc>API for reading and writing files.
+
+	See `sys.FileSystem` for the complementary file system API.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.io.FileInput" params="" file="D:\Haxe\haxe\std/cpp/_std/sys/io/FileInput.hx">
+		<extends path="haxe.io.Input"/>
+		<__f><d/></__f>
+		<readByte public="1" set="method" line="36" override="1">
+			<f a=""><x path="Int"/></f>
+			<meta><m n=":has_untyped"/></meta>
+		</readByte>
+		<readBytes public="1" set="method" line="47" override="1">
+			<f a="s:p:l">
+				<c path="haxe.io.Bytes"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</readBytes>
+		<close public="1" set="method" line="58" override="1"><f a=""><x path="Void"/></f></close>
+		<new set="method" line="32"><f a="f">
+	<d/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>Use `sys.io.File.read` to create a `FileInput`.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
+	</class>
+	<class path="sys.io.FileOutput" params="" file="D:\Haxe\haxe\std/cpp/_std/sys/io/FileOutput.hx">
+		<extends path="haxe.io.Output"/>
+		<__f><d/></__f>
+		<writeByte public="1" set="method" line="36" override="1"><f a="c">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></writeByte>
+		<writeBytes public="1" set="method" line="43" override="1"><f a="s:p:l">
+	<c path="haxe.io.Bytes"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></writeBytes>
+		<flush public="1" set="method" line="47"><f a=""><x path="Void"/></f></flush>
+		<close public="1" set="method" line="51" override="1"><f a=""><x path="Void"/></f></close>
+		<new set="method" line="32"><f a="f">
+	<d/>
+	<x path="Void"/>
+</f></new>
+		<haxe_doc>Use `sys.io.File.write` to create a `FileOutput`.</haxe_doc>
+		<meta>
+			<m n=":keep"/>
+			<m n=":directlyUsed"/>
+			<m n=":coreApi"/>
+		</meta>
 	</class>
 </haxe>

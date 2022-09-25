@@ -33,14 +33,6 @@ body {
     padding: 0;
 }
 
-.bgimg {
-    background-image: url(./assets/banner.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-}
-
 .content {
     background-color: #222;
     padding-bottom: 8px;
@@ -52,10 +44,6 @@ body {
 
 .boxhover:hover {
     box-shadow: #fff 0px 0px 10px;
-}
-
-.showelement {
-    margin-bottom: 10px;
 }
 
 a {text-decoration: none;}
@@ -71,10 +59,46 @@ a {text-decoration: none;}
     width: 30%;
 }
 
-.blogelem
+.codeblock
 {
-    margin: auto;
-    width: 80%;
-    border-radius: 5px;
     background-color: #111;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    color:#aaa;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.codeblock2
+{
+    background-color: #111;
+    text-align: left;
+    padding-left: 1em;
+    width: 30%;
+    margin: auto;
+    color:#aaa;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+.codeblockinline
+{
+    display: inline-block;
+    background-color: #111;
+    text-align: center;
+    margin: auto;
+    color:#aaa;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.guideimg
+{
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #111;
 }

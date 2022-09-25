@@ -1,6 +1,6 @@
 -cp src
 -m Main
--lib raygen
+-lib hxray-engine
 --cpp bin/cpp
 --next
 --cmd if not exist ".\bin\final" mkdir .\bin\final

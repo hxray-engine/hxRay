@@ -1,5 +1,5 @@
 {
-    "name": "raygen-engine",
+    "name": "hxray-engine",
     "url": "https://github.com/thepercentageguy/RayGen",
     "license": "MIT",
     "tags": ["cpp", "engine"],

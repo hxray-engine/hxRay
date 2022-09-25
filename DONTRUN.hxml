@@ -1,7 +1,7 @@
 -cp src
 -D doc-gen
--m raygen.CLI
---macro include('raygen')
+-m cli.CLI
+--macro include('hxray')
 -lib raylib-hx
 -lib mlib
 --no-output

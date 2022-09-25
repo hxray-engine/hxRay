@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="./guides.css" rel="stylesheet">
+        <title>Workspace Setup - hxRay</title>
+    </head>
+    <body style="background-color: #222;">
+        <div class="topbar">
+            <a href="../index.html">
+                <img class="inline boxhover" src="../assets/logo.png" width="80" style="margin-left: 10px; margin-top: 10px;" />
+
+            </a>
+            <div class="menu inline" style="float: right; margin-right: 10px; vertical-align: middle; height:100px;">
+                <a href="../api/"><h3 class="text inline menuoption txthover">API</h3></a>
+                <a href="../guides/"><h3 class="text inline menuoption txthover">Guides</h3></a>
+                <a href="https://github.com/hxray-engine/RayGen"><h3 class="text inline menuoption txthover">Source Code</h3></a>
+                <a href="https://discord.gg/c8YKKhJBpr" target="_blank"><h3 class="text inline menuoption txthover">Discord</h3></a>
+            </div>
+        </div>
+        
+        <div class="content" style="margin: auto; width: 100%; margin-top: 0;">
+            <h1 class="text" style="text-align: center; padding-top: 10px;">Workspace Setup</h1>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                This guilde will go over how to set up your workspace.
+                <b>This guide does not go over how to set up Haxe.</b>
+                <br/><br/><br/>
+                hxRay has 2 versions you can use for game development.
+                <br/><br/>
+                - The Haxelib Version (Stable)
+                <br/>
+                - The Git version (Unstable)
+                <br><br>
+                The Haxelib version can be installed by running the following command in a terminal:
+            </p>
+
+            <div class="codeblock text">
+                haxelib install hxray-engine
+            </div>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                The Git version can be installed by running the following command in a terminal:
+            </p>
+
+            <div class="codeblock text">
+                haxelib git hxray-engine https://github.com/hxray-engine/HxRay
+            </div>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                It is not recommended to use the git version for any important projects.
+            </p>
+
+            <h2 class="text" style="text-align: center; padding-top: 2em;">Creating a Project</h2>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                Creating a project is as simple as running the following command in a terminal:
+            </p>
+
+            <div class="codeblock text">
+                haxelib run hxray-engine create [PROJECTNAME]
+            </div>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                After creating your project you will be met with a file structure that should look similar to this.
+                <br/><br>
+                <img src="../assets/guide1-img1.png" height="200" class="guideimg" />
+                <br>
+                (Screenshot taken in v0.0.1)
+            </p>
+
+            <h2 class="text" style="text-align: center; padding-top: 2em;">What each file does</h2>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                <b>src/Assets.hx</b> is an empty class that uses a macro to make a string variable for each asset inside your assets directory.
+                <br>
+                <b>src/BaseScene.hx</b> is an example scene, it loads a sprite and displays it on screen.
+                <br>
+                <b>src/Main.hx</b> is responsible for setting hxRay up and loading the BaseScene. In this file you can also edit some basic game properties like resolution, and the window title.
+                <br>
+                <b>build[Platform].hxml</b> used for building your game, more info below.
+            </p>
+
+            <h2 class="text" style="text-align: center; padding-top: 2em;">How to build your Game</h2>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                After creating a project, the first thing to do is build your game to see if your development environment works. For that simply run this in a terminal:
+            </p>
+
+            <div class="codeblock text">
+                haxe ./build[Platform].hxml
+            </div>
+            
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                Make sure to replace [Platform] with your platform name. (So buildWindows, buildLinux, or buildMac).
+                <br><br>
+                As of 0.0.1 only buildWindows is available.
+                <br><br>
+                If you get any build errors, this could mean there is something wrong with the engine. In that case, please report this bug. keep in mind hxRay is still very much in development.
+                <br><br><br>
+                Once that command is done without any build errors, head to <i>./bin/final</i> and run Main.exe.
+                <br><br>
+                You should see something like this
+                <br><br>
+                <img src="../assets/guide1-img2.png" height="200" class="guideimg" />
+                <br><br>
+                This means everything went well and ran correctly. You are now ready for the next guide.
+            </p>
+        </div>
+
+        <div class="indexing" style="width: 90%; margin: auto;">
+            <a href="../guides/"><h3 class="text inline menuoption txthover" style="background-color: #111; border-radius: 10px; padding: 10px;">Home</h3></a>
+            <a href="../guides/2-howsceneswork.html"><h3 class="text inline menuoption txthover" style="float: right; background-color: #111; border-radius: 10px; padding: 10px;">2 - How Scenes work</h3></a>
+        </div>
+    </body>
+</html>

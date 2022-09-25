@@ -1,6 +1,6 @@
 package;
 
-import raygen.RgGame;
+import hxray.RgGame;
 
 class Main
 {

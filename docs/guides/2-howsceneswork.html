@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="./guides.css" rel="stylesheet">
+        <title>How Scenes Work - hxRay</title>
+    </head>
+    <body style="background-color: #222;">
+        <div class="topbar">
+            <a href="../index.html">
+                <img class="inline boxhover" src="../assets/logo.png" width="80" style="margin-left: 10px; margin-top: 10px;" />
+
+            </a>
+            <div class="menu inline" style="float: right; margin-right: 10px; vertical-align: middle; height:100px;">
+                <a href="../api/"><h3 class="text inline menuoption txthover">API</h3></a>
+                <a href="../guides/"><h3 class="text inline menuoption txthover">Guides</h3></a>
+                <a href="https://github.com/hxray-engine/RayGen"><h3 class="text inline menuoption txthover">Source Code</h3></a>
+                <a href="https://discord.gg/c8YKKhJBpr" target="_blank"><h3 class="text inline menuoption txthover">Discord</h3></a>
+            </div>
+        </div>
+        
+        <div class="content" style="margin: auto; width: 100%; margin-top: 0;">
+            <h1 class="text" style="text-align: center; padding-top: 10px;">How Scenes work</h1>
+
+            <p class="text" style="text-align: center; padding-top: 0.5m;">
+                This guide will go over how scenes work and how to add objects.
+                <br><br>
+                In hxRay, every scene is it's own class. A Scene can hold any object that extends an
+                <span class="codeblockinline text">RgAsset</span>
+                <br><br>
+                A Scene's job is to automatically call the
+                <span class="codeblockinline text">init</span>,
+                <span class="codeblockinline text">update</span>, and
+                <span class="codeblockinline text">draw</span>
+                functions of every asset in them. When switching scenes, it will also call the
+                <span class="codeblockinline text">unload</span>
+                functions.
+                <br>This means every scene manages their own objects, and it makes it easier to switch between environments.
+                <br><br>Let's look it what makes a scene work, and how to use them.
+
+            </p>
+
+            <h2 class="text" style="text-align: center;">Making your own scene</h2>
+
+            <p class="text" style="text-align: center; padding-top: 0.5em;">
+                For readability, we will add <span class="codeblockinline text">Scene</span> to the end of our scene class names.
+                <br>Let's make a scene called <span class="codeblockinline text">TestScene</span>.
+                <br><br>Start by creating a file called <span class="codeblockinline text">TestScene.hx</span> in your src folder.
+                <br><br>Every scene needs to extend the <span class="codeblockinline text">RgScene</span> class like this;
+                <div class="codeblock2 text">package;<br>
+                    <br>
+                    import hxray.RgScene;<br>
+                    <br>
+                    class TestScene extends RgScene<br>
+                    {<br>
+                        <br>
+                    }
+                </div>
+            </p>
+
+            <h2 class="text" style="text-align: center;">Adding objects to your scene</h2>
+
+            <p class="text" style="text-align: center; padding-top: 0.5em;">
+                Let's say we wanna add the hxRay logo as a sprite.
+                <br><br>First we need to add the necessary functions: <span class="codeblockinline text">init</span> and <span class="codeblockinline text">update</span>.
+                <br>Both of these are overrides, so add them inside your class like this:
+                <div class="codeblock2 text">
+                    override function init()<br>
+                    {<br>
+                        <br>
+                    }<br>
+                    <br>
+                    override function update()<br>
+                    {<br>
+                    &emsp;super.update();<br>
+                    }
+                </div>
+            </p>
+
+            <p class="text" style="text-align: center; padding-top: 0.5em;">
+                <br><br>Next, we need to create an object for our sprite. As we don't need to manipulate it during update, we can create it in the init function. Add the following code to Init:
+                <div class="codeblock2 text" style="width: 40%;">
+                    var testSprite = new RgSprite(10, 10, Rl.loadTexture(Assets.tex_hxRay));<br>
+                    register(testSprite);
+                </div>
+            </p>
+
+            <h3 class="text" style="text-align: center;">What this code does</h3>
+
+            <p class="text" style="text-align: center; padding-top: 0.5em;">
+                This code will put a hxRay logo in the top left of the screen.
+                <br><br>
+                The first line creates an instance of <span class="codeblockinline text">RgSprite</span>, hxRay's sprite object.
+                <br>The first 2 arguments of the constructor are the X and Y positions. The last is responsible for loading the sprite.
+                <br><br><span class="codeblockinline text">Assets.tex_hxRay</span> is the default hxRay logo sprite supplied with new projects.
+                <br>Every time you add or remove an asset, the <span class="codeblockinline text">Assets</span> class will adjust accordingly.
+                <br><br><br>
+                The second line adds the sprite to the scene, at which point the scene will start automatically calling the sprite's <span class="codeblockinline text">update</span> and <span class="codeblockinline text">draw</span> functions.
+                <br>Upon closing the game, or switching the scene, the sprite will automatically be unloded.
+                <br>If you want to remove an asset from the scene, you can call the <span class="codeblockinline text">unregister</span> function.
+            </p>
+
+            <h3 class="text" style="text-align: center;">How to switch to this scene</h3>
+
+            <p class="text" style="text-align: center; padding-top: 0.5em;">
+                If you try to compile, you will notice that you are still met with the default scene, of the hxRay logo in the middle of the screen, and not the top left.
+                <br>This is because you haven't switched to the scene yet.
+                <br><br>To do this, simply put this into the BaseScene.
+                <div class="codeblock2 text" style="width: 40%;">
+                    RgGameMngr.switchScene(new TestScene());
+                </div>
+            </p>
+
+            <p class="text" style="text-align: center; padding-top: 0.5em;">
+                After doing that and building your game, you should be met with a screen similar to this:
+                <br>
+                <br>
+                <img src="../assets/guide2-img1.png" height="200" class="guideimg" />
+                <br><br>
+                If everything went well, you are now ready for the next guide.
+            </p>
+        </div>
+
+        <div class="indexing" style="width: 90%; margin: auto;">
+            <a href="../guides/1-workspacesetup.html"><h3 class="text inline menuoption txthover" style="background-color: #111; border-radius: 10px; padding: 10px;">1 - Workspace Setup</h3></a>
+            <a href="../guides/"><h3 class="text inline menuoption txthover" style="float: right; background-color: #111; border-radius: 10px; padding: 10px;">? - Coming Soon</h3></a>
+        </div>
+    </body>
+</html>
