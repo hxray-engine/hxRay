@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/hxray-engine/RayGen/blob/master/logo.png?raw=true"  width="300" height="300">
+  <img src="https://github.com/hxray-engine/hxRay/blob/master/logo.png?raw=true"  width="300" height="300">
 </p>
 
 ----
@@ -14,7 +14,7 @@ N/A
 ```
 For the latest dev commit run: 
 ```
-haxelib git raygen https://github.com/thepercentageguy/RayGen
+haxelib git hxray https://github.com/thepercentageguy/RayGen
 ```
 # Development
 To work on the library yourself:
@@ -22,4 +22,4 @@ To work on the library yourself:
   - ```haxelib git raylib-hx https://github.com/foreignsasquatch/raylib-hx```
   - ```haxelib install mlib```
 - Clone this repository
-- run ```haxelib dev raygen [path to your clone]```
+- run ```haxelib dev hxray [path to your clone]```
