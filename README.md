@@ -14,7 +14,7 @@ N/A
 ```
 For the latest dev commit run: 
 ```
-haxelib git hxray https://github.com/thepercentageguy/RayGen
+haxelib git hxray-engine https://github.com/thepercentageguy/RayGen
 ```
 # Development
 To work on the library yourself:
