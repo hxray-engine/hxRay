@@ -11031,6 +11031,14 @@
 			<meta><m n=":has_untyped"/></meta>
 			<haxe_doc>See `Map.exists`</haxe_doc>
 		</exists>
+		<remove public="1" set="method" line="72">
+			<f a="key">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.remove`</haxe_doc>
+		</remove>
 		<keys public="1" set="method" line="76">
 			<f a=""><t path="Iterator"><c path="String"/></t></f>
 			<meta><m n=":has_untyped"/></meta>
@@ -11039,6 +11047,11 @@
 		(cs, java) Implementation detail: Do not `set()` any new value while
 		iterating, as it may cause a resize, which will break iteration.</haxe_doc>
 		</keys>
+		<clear public="1" set="method" line="101">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":has_untyped"/></meta>
+			<haxe_doc>See `Map.clear`</haxe_doc>
+		</clear>
 		<new public="1" set="method" line="58">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>Creates a new StringMap.</haxe_doc>
@@ -11431,6 +11444,90 @@
 		<main set="method" line="8" static="1"><f a=""><x path="Void"/></f></main>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
+	<class path="hxray.RlVector2" params="" file="hxray/RgBindingFix.hx" module="hxray.RgBindingFix" extern="1">
+		<create public="1" get="inline" set="null" line="13" static="1">
+			<f a="x:y">
+				<x path="Float"/>
+				<x path="Float"/>
+				<t path="Vector2"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</create>
+		<x public="1"><x path="Float"/></x>
+		<y public="1"><x path="Float"/></y>
+		<meta>
+			<m n=":include"><e>"raylib.h"</e></m>
+			<m n=":native"><e>"Vector2"</e></m>
+			<m n=":structAccess"/>
+		</meta>
+	</class>
+	<class path="hxray.RgControls" params="" file="hxray/RgControls.hx">
+		<actionMap public="1" set="null" static="1">
+			<t path="Map">
+				<c path="String"/>
+				<c path="Array"><x path="Int"/></c>
+			</t>
+			<haxe_doc>* Map of keycodes to actions</haxe_doc>
+		</actionMap>
+		<keyMapPath public="1" static="1">
+			<c path="String"/>
+			<haxe_doc>* Path to the keymap, used for reloading and saving</haxe_doc>
+		</keyMapPath>
+		<readKeyMap public="1" set="method" line="25" static="1">
+			<f a="?filePath" v="&quot;./assets/keymap.txt&quot;">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ filePath : "./assets/keymap.txt" }</e></m></meta>
+			<haxe_doc>* Reads the keymap from a file
+     * @param filePath path to the keymap relative to the exe</haxe_doc>
+		</readKeyMap>
+		<bindSingleAction public="1" set="method" line="56" static="1">
+			<f a="action:keyCodes">
+				<c path="String"/>
+				<c path="Array"><x path="Int"/></c>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Rebinds an action, will delete any existing binding.
+     * @param action the action to bind
+     * @param keyCodes the keycodes to use</haxe_doc>
+		</bindSingleAction>
+		<unbindSingleAction public="1" set="method" line="64" static="1">
+			<f a="action">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>* Unbinds an action.
+     * @param action the action to unbind</haxe_doc>
+		</unbindSingleAction>
+		<saveToKeyMap public="1" set="method" line="72" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Saves the current ActionMap to a file.</haxe_doc>
+		</saveToKeyMap>
+		<reloadKeyMap public="1" set="method" line="92" static="1">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>* Reloads the actionmap</haxe_doc>
+		</reloadKeyMap>
+		<isDown public="1" set="method" line="121" static="1">
+			<f a="action">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>* Checks whether any key of an action is pressed.
+     * @param action the action to check
+     * @return true if the action is pressed</haxe_doc>
+		</isDown>
+		<isUp public="1" set="method" line="137" static="1">
+			<f a="action">
+				<c path="String"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>* Checks whether any key of an action isn't down.
+     * @param action the action to check
+     * @return true if the action is pressed</haxe_doc>
+		</isUp>
+		<haxe_doc>* Class used for mapping controls to certain actions</haxe_doc>
+	</class>
 	<class path="hxray.RgGame" params="" file="hxray/RgGame.hx">
 		<main set="method" line="15" static="1">
 			<f a=""><x path="Void"/></f>
@@ -11575,32 +11672,6 @@
 		<haxe_doc>* Most basic asset, no logic.</haxe_doc>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<class path="hxray.assets.RgSound" params="" file="hxray/assets/RgSound.hx">
-		<extends path="hxray.assets.base.RgAsset"/>
-		<_snd><c path="Sound"/></_snd>
-		<isPlaying public="1" set="null" expr="false">
-			<x path="Bool"/>
-			<meta><m n=":value"><e>false</e></m></meta>
-			<haxe_doc>* Whether or not the sound is currently playing</haxe_doc>
-		</isPlaying>
-		<update public="1" set="method" line="28" override="1"><f a=""><x path="Void"/></f></update>
-		<unload public="1" set="method" line="36" override="1">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>* Used to unload and free all allocated resources, it is not recommended to override this, Called automatically upon scene switch or when un-registering the sprite.</haxe_doc>
-		</unload>
-		<play public="1" set="method" line="41"><f a=""><x path="Void"/></f></play>
-		<pause public="1" set="method" line="45"><f a=""><x path="Void"/></f></pause>
-		<stop public="1" set="method" line="49"><f a=""><x path="Void"/></f></stop>
-		<new public="1" set="method" line="21">
-			<f a="sound">
-				<c path="Sound"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>* Constructor used to initialize internal variables. **It is not recommended to override this! use `init` instead!!**
-     * @param sound Sound to load</haxe_doc>
-		</new>
-		<haxe_doc>* A 2D texture that can be displayed on screen.</haxe_doc>
-	</class>
 	<class path="hxray.assets.base.RgObject" params="" file="hxray/assets/base/RgObject.hx">
 		<extends path="hxray.assets.base.RgAsset"/>
 		<pos public="1">
@@ -11642,11 +11713,11 @@
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Used to draw the sprite on every frame</haxe_doc>
 		</draw>
-		<unload public="1" set="method" line="64" override="1">
+		<unload public="1" set="method" line="66" override="1">
 			<f a=""><x path="Void"/></f>
 			<haxe_doc>* Used to unload and free all allocated resources, it is not recommended to override this, Called automatically upon scene switch or when un-registering the sprite.</haxe_doc>
 		</unload>
-		<center public="1" set="method" line="73">
+		<center public="1" set="method" line="75">
 			<f a="?axies">
 				<e path="hxray.Axies"/>
 				<x path="Void"/>
@@ -12451,6 +12522,18 @@
 
 		If `path` is null, the result is unspecified.</haxe_doc>
 		</getContent>
+		<saveContent public="1" set="method" line="38" static="1">
+			<f a="path:content">
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Stores `content` in the file specified by `path`.
+
+		If the file cannot be written to, an exception is thrown.
+
+		If `path` or `content` are null, the result is unspecified.</haxe_doc>
+		</saveContent>
 		<read public="1" set="method" line="50" static="1">
 			<f a="path:?binary" v=":true">
 				<c path="String"/>
