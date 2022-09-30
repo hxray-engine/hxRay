@@ -31,7 +31,6 @@ class RgGame
         RgGlobal.bgColor = Rl.Colors.BLACK;
 
         Rl.initWindow(width, height, title);
-        Rl.initAudioDevice();
 
         Rl.setTargetFPS(targetFPS);
 
@@ -70,7 +69,6 @@ class RgGame
 
         currentScene.unload();
 
-        Rl.closeAudioDevice();
         Rl.closeWindow();
     }
 }

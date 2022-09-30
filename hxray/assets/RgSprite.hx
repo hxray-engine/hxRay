@@ -54,7 +54,9 @@ class RgSprite extends hxray.assets.base.RgObject
         // Old
         // Rl.drawTexture(_tex, pos.x, pos.y, color);
 
-        Rl.drawTextureEx(_tex, Rl.Vector2.create(pos.x, pos.y), angle, scale, color);
+        var posVec:RlVector2 = hxray.RgBindingFix.RlVector2.create(pos.x, pos.y);
+
+        Rl.drawTextureEx(_tex, posVec, angle, scale, color);
     }
 
     /**
